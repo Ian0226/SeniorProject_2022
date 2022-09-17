@@ -4,68 +4,68 @@ OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'zh' Physical Memory
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
-E:\Unity\2020.3.25f1\Editor\Unity.exe
+E:\Unity\UnityEditor\2020.3.25f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-E:/New3DUnityProject/3DProject_newScaryHouse
+E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62460
-Successfully changed project path to: E:/New3DUnityProject/3DProject_newScaryHouse
-E:/New3DUnityProject/3DProject_newScaryHouse
+62616
+Successfully changed project path to: E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse
+E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 31.26 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 43.41 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.25f1 (9b9180224418)
-[Subsystems] Discovering subsystems at path E:/Unity/2020.3.25f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path E:/New3DUnityProject/3DProject_newScaryHouse/Assets
+[Subsystems] Discovering subsystems at path E:/Unity/UnityEditor/2020.3.25f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
     Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c82)
     Vendor:   
     VRAM:     4018 MB
-    Driver:   30.0.14.7212
+    Driver:   27.21.14.5751
 Initialize mono
-Mono path[0] = 'E:/Unity/2020.3.25f1/Editor/Data/Managed'
-Mono path[1] = 'E:/Unity/2020.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'E:/Unity/2020.3.25f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56528
+Mono path[0] = 'E:/Unity/UnityEditor/2020.3.25f1/Editor/Data/Managed'
+Mono path[1] = 'E:/Unity/UnityEditor/2020.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'E:/Unity/UnityEditor/2020.3.25f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56564
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: E:/Unity/2020.3.25f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003001 seconds.
+Register platform support module: E:/Unity/UnityEditor/2020.3.25f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000762 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 29.43 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 44.40 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.496 seconds
+- Completed reload, in  0.460 seconds
 Domain Reload Profiling:
-	ReloadAssembly (497ms)
-		BeginReloadAssembly (54ms)
+	ReloadAssembly (461ms)
+		BeginReloadAssembly (38ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (375ms)
-			LoadAssemblies (51ms)
+		EndReloadAssembly (369ms)
+			LoadAssemblies (38ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (126ms)
+			SetupTypeCache (120ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (26ms)
-			SetupLoadedEditorAssemblies (134ms)
+			RebuildScriptCaches (25ms)
+			SetupLoadedEditorAssemblies (146ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (29ms)
-				BeforeProcessingInitializeOnLoad (14ms)
-				ProcessInitializeOnLoadAttributes (64ms)
+				RefreshPlugins (44ms)
+				BeforeProcessingInitializeOnLoad (7ms)
+				ProcessInitializeOnLoadAttributes (68ms)
 				ProcessInitializeOnLoadMethodAttributes (23ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -73,36 +73,36 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005377 seconds.
+Registered in 0.002381 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 44.27 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.874 seconds
+- Completed reload, in  0.876 seconds
 Domain Reload Profiling:
-	ReloadAssembly (874ms)
-		BeginReloadAssembly (128ms)
+	ReloadAssembly (876ms)
+		BeginReloadAssembly (109ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (15ms)
-		EndReloadAssembly (689ms)
-			LoadAssemblies (82ms)
+			CreateAndSetChildDomain (14ms)
+		EndReloadAssembly (723ms)
+			LoadAssemblies (68ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (236ms)
+			SetupTypeCache (254ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (34ms)
+			RebuildScriptCaches (38ms)
 			SetupLoadedEditorAssemblies (265ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (73ms)
-				ProcessInitializeOnLoadAttributes (169ms)
-				ProcessInitializeOnLoadMethodAttributes (8ms)
-				AfterProcessingInitializeOnLoad (10ms)
+				RefreshPlugins (44ms)
+				BeforeProcessingInitializeOnLoad (56ms)
+				ProcessInitializeOnLoadAttributes (152ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
@@ -110,14 +110,14 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.60 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1503 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 71.6 MB.
-System memory in use after: 71.6 MB.
+Unloading 2758 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 121.1 MB.
+System memory in use after: 121.3 MB.
 
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1937.
-Total: 3.248000 ms (FindLiveObjects: 0.133400 ms CreateObjectMapping: 0.055200 ms MarkObjects: 2.993000 ms  DeleteObjects: 0.065100 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3192.
+Total: 3.627500 ms (FindLiveObjects: 0.276700 ms CreateObjectMapping: 0.145700 ms MarkObjects: 3.133700 ms  DeleteObjects: 0.070400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -131,209 +131,137 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/AssetPack/diningRoom/diningRoom/models/chair/chairBeige
-  artifactKey: Guid(b85d5f90baa73895491dcacf013904e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/models/chair/chairBeige using Guid(b85d5f90baa73895491dcacf013904e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9bd1cfbf213901c2b95b9d7b213d8ce') in 0.035549 seconds 
-  Import took 0.183708 seconds .
+  path: Assets/FBXs
+  artifactKey: Guid(69c3bc0e8f5b66d4f9625474a52be3bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBXs using Guid(69c3bc0e8f5b66d4f9625474a52be3bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daded7f4f4bfa37f20fcef2fa3c2f934') in 0.010239 seconds 
+  Import took 0.015361 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 115.941291 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/models/chair/chairBeige/chairBeige.fbx
-  artifactKey: Guid(ed64eb9a0672aabe0bb601171dea2cb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/models/chair/chairBeige/chairBeige.fbx using Guid(ed64eb9a0672aabe0bb601171dea2cb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82987fe4a9210a4495c97aa500e025e8') in 0.276889 seconds 
-  Import took 0.410453 seconds .
+  Time since last request: 0.000207 seconds.
+  path: Assets/AssetPack
+  artifactKey: Guid(41e07b05a6a31f4448cedfbf7e08854b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetPack using Guid(41e07b05a6a31f4448cedfbf7e08854b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e9e8eeacdbc5b3464ba8be0d3c7d6fc') in 0.007346 seconds 
+  Import took 0.012819 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.451537 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/models/chair/chairBeige/editableMaterial
-  artifactKey: Guid(da8cf83fd04cba6b89de27d6f98253bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/models/chair/chairBeige/editableMaterial using Guid(da8cf83fd04cba6b89de27d6f98253bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f48d0f12d12789ec106baaeca93e36c7') in 0.005700 seconds 
-  Import took 0.025614 seconds .
+  Time since last request: 0.000168 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(2581bbcc8a9b3a345ab03caa2b2c8c60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(2581bbcc8a9b3a345ab03caa2b2c8c60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3b42e1fb14c2aff557c1fc11ef77dc8') in 0.007052 seconds 
+  Import took 0.012204 seconds .
 
 ========================================================================
-Received Import Request.
-  Time since last request: 27.341144 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/table/circleTable.prefab
-  artifactKey: Guid(80fc00d825bc94bdabad193049acc262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/table/circleTable.prefab using Guid(80fc00d825bc94bdabad193049acc262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff03c5b11e5fae58833bb7f44af74461') in 0.015053 seconds 
-  Import took 0.025514 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002214 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.798 seconds
+Domain Reload Profiling:
+	ReloadAssembly (799ms)
+		BeginReloadAssembly (90ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (663ms)
+			LoadAssemblies (67ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (256ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (229ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (52ms)
+				ProcessInitializeOnLoadAttributes (162ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2697 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 115.5 MB.
+System memory in use after: 115.7 MB.
 
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3194.
+Total: 2.503800 ms (FindLiveObjects: 0.196200 ms CreateObjectMapping: 0.105200 ms MarkObjects: 2.188400 ms  DeleteObjects: 0.013000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 156.187582 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/table/squareTable.prefab
-  artifactKey: Guid(58b8e9c74f874e15c9e15721c4e12d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/table/squareTable.prefab using Guid(58b8e9c74f874e15c9e15721c4e12d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2076d999e42bdd9753356641a052099') in 0.011700 seconds 
-  Import took 0.014432 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003362 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.770 seconds
+Domain Reload Profiling:
+	ReloadAssembly (770ms)
+		BeginReloadAssembly (79ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (26ms)
+		EndReloadAssembly (647ms)
+			LoadAssemblies (67ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (247ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (222ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (49ms)
+				ProcessInitializeOnLoadAttributes (159ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2697 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 115.5 MB.
+System memory in use after: 115.7 MB.
 
-========================================================================
-Received Import Request.
-  Time since last request: 0.291429 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/table/squareLegsTable.prefab
-  artifactKey: Guid(9a3baabfd46c547df99f8f0112e256a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/table/squareLegsTable.prefab using Guid(9a3baabfd46c547df99f8f0112e256a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5225683d44190238312bd4cd8fb64914') in 0.010580 seconds 
-  Import took 0.077909 seconds .
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3196.
+Total: 2.621700 ms (FindLiveObjects: 0.180700 ms CreateObjectMapping: 0.088400 ms MarkObjects: 2.337200 ms  DeleteObjects: 0.014400 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 0.553214 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/table/twoRectangleLegs.prefab
-  artifactKey: Guid(850e8dc178402c4f18175884ac4385bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/table/twoRectangleLegs.prefab using Guid(850e8dc178402c4f18175884ac4385bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '137f5fbdcb3a44c0534ac451f64e1816') in 0.010428 seconds 
-  Import took 0.143422 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.038693 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/table/RectangleTable.prefab
-  artifactKey: Guid(3e760b57b983a98a78f4f5bcca87b1f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/table/RectangleTable.prefab using Guid(3e760b57b983a98a78f4f5bcca87b1f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b0a022162638cb068cdf21fa128e3a8') in 0.010695 seconds 
-  Import took 0.013633 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.497657 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/table/joinedLegsTable.prefab
-  artifactKey: Guid(202fb53fa581b517698e439808f034e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/table/joinedLegsTable.prefab using Guid(202fb53fa581b517698e439808f034e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '129294dd853781cce5db4328510d88b0') in 0.010722 seconds 
-  Import took 0.062653 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.485965 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/table/cylinderTable.prefab
-  artifactKey: Guid(67940304f10c38614878dfe3f7fc7016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/table/cylinderTable.prefab using Guid(67940304f10c38614878dfe3f7fc7016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b77ff4f044eb1b9c7ce13ae41c2359ac') in 0.011017 seconds 
-  Import took 0.014039 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.203815 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/lamp/coneLamps.prefab
-  artifactKey: Guid(2ea1381259b9d4a5c9fcb868d07b7f75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/lamp/coneLamps.prefab using Guid(2ea1381259b9d4a5c9fcb868d07b7f75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96ee84fcc1327af8088d96451f23c654') in 0.015055 seconds 
-  Import took 0.017865 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.784185 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/lamp/cylinderLamps 1.prefab
-  artifactKey: Guid(a0928e4a60ae2f3af819d900d41c796d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/lamp/cylinderLamps 1.prefab using Guid(a0928e4a60ae2f3af819d900d41c796d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0f2bbf5e43ce11eb26c8ef4edbc169a') in 0.043451 seconds 
-  Import took 0.067632 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.790719 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/lamp/wireframeLamps.prefab
-  artifactKey: Guid(7f3701cfcd2e6adef83683845ad3fc66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/lamp/wireframeLamps.prefab using Guid(7f3701cfcd2e6adef83683845ad3fc66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b35d46d45efe85fa557474adfd434d0') in 0.012221 seconds 
-  Import took 0.028509 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.516078 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/candle.prefab
-  artifactKey: Guid(f761d75c1f0db96e7b10d5247e781766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/candle.prefab using Guid(f761d75c1f0db96e7b10d5247e781766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1f9c1a6206bd34fad72336035133fd3') in 0.235388 seconds 
-  Import took 0.243485 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.538358 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/decorBaseWithCandle.prefab
-  artifactKey: Guid(6f7317012674f08b1953df527f2ac20b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/decorBaseWithCandle.prefab using Guid(6f7317012674f08b1953df527f2ac20b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '629f389c18094e6d9fca3bfc568a5599') in 0.081387 seconds 
-  Import took 0.084382 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.726759 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/saltShaker.prefab
-  artifactKey: Guid(a18d7e21743b61bde98aa71c546dfe31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/saltShaker.prefab using Guid(a18d7e21743b61bde98aa71c546dfe31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96c96c90136bab1442ade5f7c268c6c9') in 0.011511 seconds 
-  Import took 0.013966 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.014639 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/tableware 1.prefab
-  artifactKey: Guid(6f396205d1c373dbe8d49d5d045a24b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/tableware 1.prefab using Guid(6f396205d1c373dbe8d49d5d045a24b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7a95b12f55e5a9c88d685b5395df366') in 0.011190 seconds 
-  Import took 0.026697 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.471485 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/tableware.prefab
-  artifactKey: Guid(4baf4711a083226e9a2b40e0fd5c043e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/decor/tableware.prefab using Guid(4baf4711a083226e9a2b40e0fd5c043e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b755bc41a999c98fe588d2c076b9bf0d') in 0.032915 seconds 
-  Import took 0.035414 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.193131 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/chair/chairBeige.prefab
-  artifactKey: Guid(c445c130e24ffd1c5a9e31a642d9bf5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/chair/chairBeige.prefab using Guid(c445c130e24ffd1c5a9e31a642d9bf5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e25ae3241d8458c92321d6a949d8f9d') in 0.009549 seconds 
-  Import took 0.036851 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.536847 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/chair/curveBackChair.prefab
-  artifactKey: Guid(6cd36c1df47238eedbd744ca28929267) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/chair/curveBackChair.prefab using Guid(6cd36c1df47238eedbd744ca28929267) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '632351a62066584c645a5ce2a8ab3b0c') in 0.012692 seconds 
-  Import took 0.015307 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.547580 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/prefabs/chair/fourVerticalBackrestChair.prefab
-  artifactKey: Guid(1fc922c2a35829fd6981f71e66891293) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/prefabs/chair/fourVerticalBackrestChair.prefab using Guid(1fc922c2a35829fd6981f71e66891293) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e201f667ee36cd689c5d747b797378d') in 0.011771 seconds 
-  Import took 0.014598 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 209.282700 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/models/chair/fourHorizontalbackrestChair/fourHorizontalbackrestChair.fbx
-  artifactKey: Guid(b3e7d02d7c310cf41bb6f97df0b98cda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/models/chair/fourHorizontalbackrestChair/fourHorizontalbackrestChair.fbx using Guid(b3e7d02d7c310cf41bb6f97df0b98cda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e8867cba35d34f22e15912e2b23e942') in 0.031649 seconds 
-  Import took 0.116652 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.414765 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/models/chair/fourVerticalBackrestChair/fourVerticalBackrestChair.fbx
-  artifactKey: Guid(04b4d3ec6b452372bb804fa5fd9a859c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/models/chair/fourVerticalBackrestChair/fourVerticalBackrestChair.fbx using Guid(04b4d3ec6b452372bb804fa5fd9a859c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfabaf1f3b1b51c519758a5b7e9227a5') in 0.050103 seconds 
-  Import took 0.136080 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.900944 seconds.
-  path: Assets/AssetPack/diningRoom/diningRoom/models/chair/redChair/curveBackChair.fbx
-  artifactKey: Guid(ffc9b1dee02f93852a89272a2abc86ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/diningRoom/diningRoom/models/chair/redChair/curveBackChair.fbx using Guid(ffc9b1dee02f93852a89272a2abc86ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbd5f46b3ddea8d872ea3432f859d98c') in 0.055118 seconds 
-  Import took 0.058098 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 67.158360 seconds.
-  path: Assets/AssetPack/StudioBillion/House Interior/Models
-  artifactKey: Guid(0c119f26db6336c459c783a22356f989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AssetPack/StudioBillion/House Interior/Models using Guid(0c119f26db6336c459c783a22356f989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e3fbb684e55af9afd6bad2e13c046ac') in 0.030726 seconds 
-  Import took 0.080023 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1394.559674 seconds.
-  path: Assets/Scenes/GameScene_1.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/GameScene_1.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '713027c220b4f872323378635cb829c8') in 0.006878 seconds 
-  Import took 0.038546 seconds .
-
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
