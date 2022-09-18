@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //移動速度
     [SerializeField]
     private float moveSpeed;
     public float MoveSpeed
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
         get { return moveSpeed; }
         set { moveSpeed = value; }
     }
+    //滑鼠靈敏度
     [SerializeField]
     private float mouseSensitivity;
     public float MouseSensitivity
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private Transform mainCameraTransform;
     [SerializeField]
     private float interactiveRange;
+    //玩家當前互動的物件
     private GameObject nowInteractiveObj;
     private CharacterController playerCtrl;
 
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hitObj, interactiveRange) )
         {
             hitObj.transform.SendMessage("HitByRaycast", gameObject, SendMessageOptions.DontRequireReceiver);
+            nowInteractiveObj = hitObj.transform.gameObject;
             //Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
             //print(hitObj.transform.name);
         }

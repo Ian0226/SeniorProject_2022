@@ -620,8 +620,20 @@
  <Reference Include="System.Xml.Serialization">
  <HintPath>E:/Unity/UnityEditor/2020.3.25f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.ShaderGraph.Editor">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Editor">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -629,14 +641,29 @@
  <Reference Include="Unity.VisualStudio.Editor">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics.Editor">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Searcher.Editor">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Runtime">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
@@ -647,8 +674,17 @@
  <Reference Include="Unity.Rider.Editor">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics">
+ <HintPath>E:/SeniorProject_2022/SeniorProject_2022/3DProject_newScaryHouse/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
