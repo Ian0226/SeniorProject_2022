@@ -33,7 +33,12 @@ public class PlayerController : MonoBehaviour
 
     private Ray ray;
     private RaycastHit hitObj;
-    
+
+    private bool isCollide;
+    [SerializeField]
+    private GameObject interactiveText;
+
+
 
     private void Start()
     {
@@ -107,6 +112,13 @@ public class PlayerController : MonoBehaviour
             case "Door":
                 hitObj.transform.GetComponentInParent<DoorController>().Interactive();
                 break;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Door"))
+        {
+
         }
     }
 }
