@@ -35,10 +35,6 @@ public class PlayerController : MonoBehaviour
     private RaycastHit hitObj;
 
     private bool isCollide;
-    [SerializeField]
-    private GameObject interactiveText;
-
-
 
     private void Start()
     {
@@ -59,7 +55,8 @@ public class PlayerController : MonoBehaviour
             //Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
             //print(hitObj.transform.name);
         }
-        if(Physics.Raycast(ray, out hitObj, interactiveRange) && hitObj.transform.gameObject != null && Input.GetKeyDown(KeyCode.E))
+        if(Physics.Raycast(ray, out hitObj, interactiveRange) && hitObj.transform.gameObject != null &&
+            Input.GetKeyDown(KeyCode.E) && isCollide == true)
         {
             PlayerInteractive();
         }
@@ -116,9 +113,18 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Door"))
+        if (other.CompareTag("DoorCollider"))
         {
-
+            isCollide = true;
+            GameObject.Find("Canvas").GetComponent<UIManager>().ShowText(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("DoorCollider"))
+        {
+            isCollide = false;
+            GameObject.Find("Canvas").GetComponent<UIManager>().ShowText(false);
         }
     }
 }

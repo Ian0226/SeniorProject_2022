@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\DoorController.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\InteractableObjBase.cs" />
+    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Kevin Iglesias\3DCharacterDummy\Readme.txt" />
