@@ -29,12 +29,18 @@ public class PlayerController : MonoBehaviour
     private float interactiveRange;
     //玩家當前互動的物件
     private GameObject nowInteractiveObj;
+    //玩家當前碰撞到的物件
+    private GameObject nowCollisionObj;
+
     private CharacterController playerCtrl;
 
     private Ray ray;
     private RaycastHit hitObj;
 
     private bool isCollide;
+
+    [SerializeField]
+    private UIManager uiManager;
 
     private void Start()
     {
@@ -47,19 +53,25 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         CameraCtrl();
-        ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        if (Physics.Raycast(ray, out hitObj, interactiveRange) )
+
+        ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width /2, Screen.height /2, 0));
+        if(Physics.Raycast(ray, out hitObj, interactiveRange))
         {
-            hitObj.transform.SendMessage("HitByRaycast", gameObject, SendMessageOptions.DontRequireReceiver);
-            nowInteractiveObj = hitObj.transform.gameObject;
-            //Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
+            //hitObj.transform.SendMessage("HitByRaycast", gameObject, SendMessageOptions.DontRequireReceiver);
+            //nowInteractiveObj = hitObj.transform.gameObject;
+            Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
             //print(hitObj.transform.name);
         }
-        if(Physics.Raycast(ray, out hitObj, interactiveRange) && hitObj.transform.gameObject != null &&
-            Input.GetKeyDown(KeyCode.E) && isCollide == true)
+        if (uiManager.InteractiveText.activeInHierarchy == true)
         {
-            PlayerInteractive();
+            if (Input.GetKeyDown(KeyCode.E) && nowCollisionObj != null)
+            {
+                nowInteractiveObj = nowCollisionObj;
+                PlayerInteractive();
+            }
+               
         }
+        Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
     }
 
     private void Move()
@@ -107,24 +119,46 @@ public class PlayerController : MonoBehaviour
         switch(hitObj.transform.gameObject.tag)
         {
             case "Door":
-                hitObj.transform.GetComponentInParent<DoorController>().Interactive();
+                nowCollisionObj.GetComponentInChildren<DoorController>().Interactive();
                 break;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("DoorCollider"))
+        nowCollisionObj = other.gameObject;
+        switch(other.tag)
         {
-            isCollide = true;
-            GameObject.Find("Canvas").GetComponent<UIManager>().ShowText(true);
+            case "DoorCollider":
+                isCollide = true;
+                break;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "DoorCollider":
+                if(Physics.Raycast(ray, out hitObj, interactiveRange) && hitObj.transform.gameObject.tag == "Door")
+                {
+                    uiManager.ShowText(true);
+                }
+                else
+                {
+                    uiManager.ShowText(false);
+                }
+                break;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("DoorCollider"))
+        nowCollisionObj = null;
+        nowInteractiveObj = null;
+        switch (other.tag)
         {
-            isCollide = false;
-            GameObject.Find("Canvas").GetComponent<UIManager>().ShowText(false);
+            case "DoorCollider":
+                isCollide = false;
+                uiManager.ShowText(false);
+                break;
         }
     }
 }
