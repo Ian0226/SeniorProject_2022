@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         mainCameraTransform = Camera.main.GetComponent<Transform>();
         playerCtrl = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
     private void Update()
     {
