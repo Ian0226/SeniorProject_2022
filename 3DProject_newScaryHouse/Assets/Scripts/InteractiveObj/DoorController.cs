@@ -7,51 +7,90 @@ public class DoorController : InteractableObjBase
     private GameObject doorAxis;
     [SerializeField]
     private float rotate;
+    //門移動秒數
     [SerializeField]
     private float doorMove;
     [SerializeField]
     private bool doorOpen;
     private Vector3 doorOriginalTransform;
 
+    //門打開的最大角度
+    [SerializeField]
+    private int doorMaxOpenDegrees;
+
+    //門的方向(true向內 false向外)
+    [SerializeField]
+    private bool doorDirection;
+
+
+    
+
     private void Start()
     {
         doorAxis = this.gameObject;
         doorOriginalTransform = this.transform.rotation.eulerAngles;
     }
-    private void Update()
-    {
-        
-    }
 
     private void OpenTheDoor()
     {
-        if (rotate < 90)
+        if(!doorDirection)
         {
-            doorAxis.transform.rotation = Quaternion.Euler(new Vector3(0, doorAxis.transform.rotation.y + rotate, 0));
-            rotate++;
+            if (rotate < doorMaxOpenDegrees)
+            {
+                doorAxis.transform.rotation = Quaternion.Euler(new Vector3(doorOriginalTransform.x, doorAxis.transform.rotation.y + rotate, doorOriginalTransform.z));
+                rotate++;
+            }
+            else
+            {
+                CancelInvoke();
+            }
         }
         else
         {
-            CancelInvoke();
+            if (rotate > -doorMaxOpenDegrees)
+            {
+                doorAxis.transform.rotation = Quaternion.Euler(new Vector3(doorOriginalTransform.x, doorAxis.transform.rotation.y + rotate, doorOriginalTransform.z));
+                rotate--;
+            }
+            else
+            {
+                CancelInvoke();
+            }
         }
         
     }
 
     private void CloseTheDoor()
     {
-        if (rotate > 0)
+        if(!doorDirection)
         {
-            doorAxis.transform.rotation = Quaternion.Euler(new Vector3(0, doorAxis.transform.rotation.y + rotate, 0));
-            rotate--;
+            if (rotate > 0)
+            {
+                doorAxis.transform.rotation = Quaternion.Euler(new Vector3(doorOriginalTransform.x, doorAxis.transform.rotation.y + rotate, doorOriginalTransform.z));
+                rotate--;
+            }
+            else
+            {
+                CancelInvoke();
+            }
         }
         else
         {
-            CancelInvoke();
+            if (rotate < 0)
+            {
+                doorAxis.transform.rotation = Quaternion.Euler(new Vector3(doorOriginalTransform.x, doorAxis.transform.rotation.y + rotate, doorOriginalTransform.z));
+                rotate++;
+            }
+            else
+            {
+                CancelInvoke();
+            }
         }
+        
         
     }
 
-    public void Interactive()
+    public override void Interactive()
     {
         if(doorOpen == false)
         {
