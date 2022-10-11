@@ -53,13 +53,13 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\DoorController.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\InteractableObjBase.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Kevin Iglesias\3DCharacterDummy\Readme.txt" />
+    <None Include="Assets\AssetPack\Kevin Iglesias\3DCharacterDummy\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

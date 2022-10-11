@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class InteractableObjBase : MonoBehaviour
 {
-    public virtual void Interactive()
-    {
-        
-    }
+    public virtual void Interactive() { }
 }

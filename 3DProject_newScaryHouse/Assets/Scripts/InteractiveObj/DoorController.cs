@@ -22,8 +22,25 @@ public class DoorController : InteractableObjBase
     [SerializeField]
     private bool doorDirection;
 
-
     
+
+    public override void Interactive()
+    {
+        if (doorOpen == false)
+        {
+            doorOpen = true;
+            InvokeRepeating("OpenTheDoor", doorMove, doorMove);
+        }
+        else if (doorOpen == true)
+        {
+            doorOpen = false;
+            InvokeRepeating("CloseTheDoor", doorMove, doorMove);
+        }
+        else
+        {
+            //this.transform.eulerAngles = doorOriginalTransform;
+        }
+    }
 
     private void Start()
     {
@@ -90,21 +107,5 @@ public class DoorController : InteractableObjBase
         
     }
 
-    public override void Interactive()
-    {
-        if(doorOpen == false)
-        {
-            doorOpen = true;
-            InvokeRepeating("OpenTheDoor", doorMove, doorMove);
-        }
-        else if(doorOpen == true)
-        {
-            doorOpen = false;
-            InvokeRepeating("CloseTheDoor", doorMove, doorMove);
-        }
-        else
-        {
-            //this.transform.eulerAngles = doorOriginalTransform;
-        }
-    }
+    
 }
