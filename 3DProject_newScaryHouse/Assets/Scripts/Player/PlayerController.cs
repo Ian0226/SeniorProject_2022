@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private float gravity;
     private Transform playerTransform;
     private Transform mainCameraTransform;
+    //射線長度
     [SerializeField]
     private float interactiveRange;
     //玩家當前互動的物件
