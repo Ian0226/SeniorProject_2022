@@ -6022,7 +6022,7 @@ GameObject:
   - component: {fileID: 895672806760690155}
   - component: {fileID: 649340578743650621}
   - component: {fileID: 7785442657303058627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u81E5\u5BA4\u9580"
   m_TagString: Door
   m_Icon: {fileID: 0}

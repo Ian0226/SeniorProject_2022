@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController playerCtrl;
 
     private Ray ray;
+    //射線打到的物件
     private RaycastHit hitObj;
 
     private bool isCollide;
@@ -60,20 +61,29 @@ public class PlayerController : MonoBehaviour
         if(Physics.Raycast(ray, out hitObj, interactiveRange))
         {
             //hitObj.transform.SendMessage("HitByRaycast", gameObject, SendMessageOptions.DontRequireReceiver);
-            //nowInteractiveObj = hitObj.transform.gameObject;
+            nowInteractiveObj = hitObj.transform.gameObject;
             Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
+            DetectInteractiveObj();
             //print(hitObj.transform.name);
         }
+        else
+        {
+            nowInteractiveObj = null;
+            uiManager.ShowText(false);
+        }
+        //判斷互動UI是否已彈出
         if (uiManager.InteractiveText.activeInHierarchy == true)
         {
-            if (Input.GetKeyDown(KeyCode.E) && nowCollisionObj != null)
+            //點擊E互動
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                nowInteractiveObj = nowCollisionObj;
-                PlayerInteractive();
+                //調用互動方法
+                PlayerInteractive(hitObj.transform.gameObject);
             }
                
         }
         Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
+        //print(hitObj.transform.gameObject.layer + " " + nowInteractiveObj.name.ToString() + " " + hitObj.transform.name);
     }
 
     private void Move()
@@ -115,16 +125,32 @@ public class PlayerController : MonoBehaviour
         xRotate = Mathf.Clamp(xRotate, -70f, 60f);
         mainCameraTransform.localRotation = Quaternion.Euler(xRotate, 0f, 0f);
     }
-
-    private void PlayerInteractive()
+    //玩家互動方法
+    private void PlayerInteractive(GameObject obj)
     {
-        switch(hitObj.transform.gameObject.tag)
+        switch(obj.tag)
         {
             case "Door":
-                nowCollisionObj.GetComponentInChildren<DoorController>().Interactive();
+                nowInteractiveObj.GetComponentInParent<DoorController>().Interactive();
+                break;
+            case "Item":
+                //調用互動物件的方法
                 break;
         }
     }
+    private void DetectInteractiveObj()
+    {
+        
+        if (hitObj.transform.gameObject.layer == 6 && nowInteractiveObj!=null)
+        {
+            uiManager.ShowText(true);
+        }
+        else
+        {
+            uiManager.ShowText(false);
+        }
+    }
+    /*
     private void OnTriggerEnter(Collider other)
     {
         nowCollisionObj = other.gameObject;
@@ -163,4 +189,5 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+    */
 }
