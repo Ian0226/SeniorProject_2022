@@ -22,25 +22,13 @@ public class DoorController : InteractableObjBase
     [SerializeField]
     private bool doorDirection;
 
-    
+    //門是否鎖住
+    [SerializeField]
+    private bool doorLock;
 
-    public override void Interactive()
-    {
-        if (doorOpen == false)
-        {
-            doorOpen = true;
-            InvokeRepeating("OpenTheDoor", doorMove, doorMove);
-        }
-        else if (doorOpen == true)
-        {
-            doorOpen = false;
-            InvokeRepeating("CloseTheDoor", doorMove, doorMove);
-        }
-        else
-        {
-            //this.transform.eulerAngles = doorOriginalTransform;
-        }
-    }
+    [Header("用來解鎖門的物件")]
+    [SerializeField]
+    private GameObject unlockDoorObj = null;
 
     private void Start()
     {
@@ -106,6 +94,37 @@ public class DoorController : InteractableObjBase
         
         
     }
+    public override void Interactive()
+    {
+        if (!doorLock)
+        {
+            if (doorOpen == false)
+            {
+                doorOpen = true;
+                InvokeRepeating("OpenTheDoor", doorMove, doorMove);
+            }
+            else if (doorOpen == true)
+            {
+                doorOpen = false;
+                InvokeRepeating("CloseTheDoor", doorMove, doorMove);
+            }
+            else
+            {
+                //this.transform.eulerAngles = doorOriginalTransform;
+            }
+        }
+        else
+        {
+            //if(InteractiveObjDB玩家物品欄類別的list中有跟unlockDoorObj一樣的物件)
+            //  把門解鎖並開門
+            //else
+            //  DoorLockInteractiveEffect();
+        }
+    }
 
-    
+    //門鎖住時的互動效果(待完成)
+    private void DoorLockInteractiveEffect()
+    {
+
+    }
 }
