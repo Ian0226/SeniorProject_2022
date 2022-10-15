@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private static List<GameObject> interactiveObjs;
+    private static List<GameObject> interactiveObjs = new List<GameObject>();
 
     public static List<GameObject> GetObj()
     {

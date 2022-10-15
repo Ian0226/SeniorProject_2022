@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
                
         }
         Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
-        print(hitObj.transform.gameObject.layer + " " + nowInteractiveObj.name.ToString() + " " + hitObj.transform.name);
+        //print(hitObj.transform.gameObject.layer + " " + nowInteractiveObj.name.ToString() + " " + hitObj.transform.name);
     }
 
     private void Move()
@@ -128,15 +128,13 @@ public class PlayerController : MonoBehaviour
     //玩家互動方法
     private void PlayerInteractive(GameObject obj)
     {
-        Debug.Log(nowInteractiveObj);
         switch (obj.tag)
         {
             case "Door":
                 nowInteractiveObj.GetComponentInParent<DoorController>().Interactive();
                 break;
             case "Item":
-                Inventory.SetObj(obj);
-                //nowInteractiveObj.GetComponent<ItemController>().Interactive();
+                nowInteractiveObj.GetComponent<ItemController>().Interactive();
                 //調用互動物件的方法
                 break;
         }
