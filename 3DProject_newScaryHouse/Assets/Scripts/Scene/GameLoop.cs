@@ -20,7 +20,7 @@ public class GameLoop : MonoBehaviour
     void Update()
     {
         testInt = testIntInspector;
-        Debug.Log(testInt);
+        //Debug.Log(testInt);
         sceneStateController.StateUpdate();
     }
 }

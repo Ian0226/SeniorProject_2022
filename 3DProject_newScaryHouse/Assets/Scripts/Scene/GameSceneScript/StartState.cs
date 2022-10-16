@@ -14,8 +14,7 @@ public class StartState : ISceneState
     }
     public override void StateUpdate()
     {
-        if (GameLoop.testInt == 9)
-            m_Controller.SetState(new MainMenuState(m_Controller), "MainMenuScene");
+        m_Controller.SetState(new MainMenuState(m_Controller), "MainMenuScene");
     }
     public override void StateEnd()
     {

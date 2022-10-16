@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuState : ISceneState
 {
@@ -10,15 +11,15 @@ public class MainMenuState : ISceneState
     }
     public override void StateBegin()
     {
-
+        Button startBtn = GameObject.Find("StartButton").GetComponent<Button>();
+        if(startBtn != null)
+            startBtn.onClick.AddListener(
+                                        ()=>OnStartGameBtnClick(startBtn)
+                                        );
+        
     }
-    public override void StateUpdate()
+    private void OnStartGameBtnClick(Button btn)
     {
-        if (GameLoop.testInt == 1)
-            m_Controller.SetState(new MainGameState_1(m_Controller), "MainGameScene_1");
-    }
-    public override void StateEnd()
-    {
-
+        m_Controller.SetState(new MainGameState_1(m_Controller), "MainGameScene_1");
     }
 }
