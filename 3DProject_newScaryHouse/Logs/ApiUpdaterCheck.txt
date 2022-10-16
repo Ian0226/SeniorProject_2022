@@ -38,3 +38,34 @@ C# parse time         : 1764ms
 candidates check time : 25ms
 console write time    : 1ms
 
+<<<<<<< HEAD
+[api-updater (non-obsolete-error-filter)] 2022/10/11 下午 10:34:50 : Starting C:/Program Files/Unity 2020.3.25f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 1140.0615ms
+moved types parse time: 75ms
+candidates parse time : 1ms
+C# parse time         : 218ms
+candidates check time : 28ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2022/10/11 下午 10:35:02 : Starting C:/Program Files/Unity 2020.3.25f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 107.2871ms
+moved types parse time: 73ms
+candidates parse time : 1ms
+C# parse time         : 237ms
+candidates check time : 27ms
+=======
+[api-updater (non-obsolete-error-filter)] 2022/10/16 上午 12:06:16 : Starting E:/Program Files/Unity/Hub/Editor/2020.3.25f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 1797.3417ms
+moved types parse time: 44ms
+candidates parse time : 0ms
+C# parse time         : 891ms
+candidates check time : 43ms
+>>>>>>> 1316b68b060dadd2355c2250daa49334f6d3dfea
+console write time    : 0ms
+

@@ -53,10 +53,23 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MainGameScene1-6\MainGameScene_1.cs" />
+    <Compile Include="Assets\Scripts\StartScene.cs" />
+    <Compile Include="Assets\Scripts\MainGameScene1-6\MainGameScene_2.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\MainGameScene1-6\MainGameScene_5.cs" />
+    <Compile Include="Assets\Scripts\SceneStateController.cs" />
+    <Compile Include="Assets\Scripts\ISceneState.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\DoorController.cs" />
+    <Compile Include="Assets\Scripts\MainMenuScene.cs" />
+    <Compile Include="Assets\Scripts\InteractiveObj\ItemController.cs" />
+    <Compile Include="Assets\Scripts\GameLoop.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\InteractableObjBase.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\MainGameScene1-6\MainGameScene_3.cs" />
+    <Compile Include="Assets\Scripts\MainGameScene1-6\MainGameScene_6.cs" />
+    <Compile Include="Assets\Scripts\MainGameScene1-6\MainGameScene_4.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
