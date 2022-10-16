@@ -93,7 +93,6 @@ m_PackageAssets:
         - 1.17.0
         - 1.17.1
         - 1.17.2
-        - 1.17.6
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -117,7 +116,6 @@ m_PackageAssets:
         - 1.17.0
         - 1.17.1
         - 1.17.2
-        - 1.17.6
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -228,7 +226,6 @@ m_PackageAssets:
         - 3.0.13
         - 3.0.14
         - 3.0.15
-        - 3.0.16
         compatible:
         - 1.0.2
         - 1.0.6
@@ -261,7 +258,6 @@ m_PackageAssets:
         - 3.0.13
         - 3.0.14
         - 3.0.15
-        - 3.0.16
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -531,14 +527,12 @@ m_PackageAssets:
         - 10.8.1
         - 10.9.0
         - 10.10.0
-        - 10.10.1
         compatible:
         - 10.7.0
         - 10.8.0
         - 10.8.1
         - 10.9.0
         - 10.10.0
-        - 10.10.1
         verified: 10.7.0
       dependencies:
       - name: com.unity.mathematics
