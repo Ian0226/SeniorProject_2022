@@ -7,65 +7,124 @@ public class DoorController : InteractableObjBase
     private GameObject doorAxis;
     [SerializeField]
     private float rotate;
+    //門移動秒數
     [SerializeField]
     private float doorMove;
     [SerializeField]
     private bool doorOpen;
     private Vector3 doorOriginalTransform;
 
+    //門打開的最大角度
+    [SerializeField]
+    private int doorMaxOpenDegrees;
+
+    //門的方向(true向內 false向外)
+    [SerializeField]
+    private bool doorDirection;
+
+    //門是否鎖住
+    [SerializeField]
+    private bool doorLock;
+
+    [Header("用來解鎖門的物件")]
+    [SerializeField]
+    private GameObject unlockDoorObj = null;
+
     private void Start()
     {
         doorAxis = this.gameObject;
         doorOriginalTransform = this.transform.rotation.eulerAngles;
     }
-    private void Update()
-    {
-        
-    }
 
     private void OpenTheDoor()
     {
-        if (rotate < 90)
+        if(!doorDirection)
         {
-            doorAxis.transform.rotation = Quaternion.Euler(new Vector3(0, doorAxis.transform.rotation.y + rotate, 0));
-            rotate++;
+            if (rotate < doorMaxOpenDegrees)
+            {
+                doorAxis.transform.rotation = Quaternion.Euler(new Vector3(doorOriginalTransform.x, doorAxis.transform.rotation.y + rotate, doorOriginalTransform.z));
+                rotate++;
+            }
+            else
+            {
+                CancelInvoke();
+            }
         }
         else
         {
-            CancelInvoke();
+            if (rotate > -doorMaxOpenDegrees)
+            {
+                doorAxis.transform.rotation = Quaternion.Euler(new Vector3(doorOriginalTransform.x, doorAxis.transform.rotation.y + rotate, doorOriginalTransform.z));
+                rotate--;
+            }
+            else
+            {
+                CancelInvoke();
+            }
         }
         
     }
 
     private void CloseTheDoor()
     {
-        if (rotate > 0)
+        if(!doorDirection)
         {
-            doorAxis.transform.rotation = Quaternion.Euler(new Vector3(0, doorAxis.transform.rotation.y + rotate, 0));
-            rotate--;
+            if (rotate > 0)
+            {
+                doorAxis.transform.rotation = Quaternion.Euler(new Vector3(doorOriginalTransform.x, doorAxis.transform.rotation.y + rotate, doorOriginalTransform.z));
+                rotate--;
+            }
+            else
+            {
+                CancelInvoke();
+            }
         }
         else
         {
-            CancelInvoke();
+            if (rotate < 0)
+            {
+                doorAxis.transform.rotation = Quaternion.Euler(new Vector3(doorOriginalTransform.x, doorAxis.transform.rotation.y + rotate, doorOriginalTransform.z));
+                rotate++;
+            }
+            else
+            {
+                CancelInvoke();
+            }
         }
         
+        
     }
-
-    public void Interactive()
+    public override void Interactive()
     {
-        if(doorOpen == false)
+        if (!doorLock)
         {
-            doorOpen = true;
-            InvokeRepeating("OpenTheDoor", doorMove, doorMove);
-        }
-        else if(doorOpen == true)
-        {
-            doorOpen = false;
-            InvokeRepeating("CloseTheDoor", doorMove, doorMove);
+            if (doorOpen == false)
+            {
+                doorOpen = true;
+                InvokeRepeating("OpenTheDoor", doorMove, doorMove);
+            }
+            else if (doorOpen == true)
+            {
+                doorOpen = false;
+                InvokeRepeating("CloseTheDoor", doorMove, doorMove);
+            }
+            else
+            {
+                //this.transform.eulerAngles = doorOriginalTransform;
+            }
         }
         else
         {
-            //this.transform.eulerAngles = doorOriginalTransform;
+            //if(InteractiveObjDB玩家物品欄類別的list中有跟unlockDoorObj一樣的物件)
+            //  把門解鎖並開門
+            //else
+            //  DoorLockInteractiveEffect();
         }
+    }
+
+    //門鎖住時的互動效果(待完成)
+    private void DoorLockInteractiveEffect()
+    {
+
     }
 }

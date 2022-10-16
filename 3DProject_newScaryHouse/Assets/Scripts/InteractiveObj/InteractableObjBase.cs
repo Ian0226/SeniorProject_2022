@@ -4,10 +4,5 @@ using UnityEngine;
 
 public class InteractableObjBase : MonoBehaviour
 {
-    private string command;
-    public string Command
-    {
-        get { return command; }
-        set { command = value; }
-    }
+    public virtual void Interactive() { }
 }

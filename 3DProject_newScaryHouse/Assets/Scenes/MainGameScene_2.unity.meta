@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:3DProject_newScaryHouse/Assets/Scenes/MainGameScene_2.unity.meta
 guid: ae11a1dbb5fc78649bd0fde8b20a1376
+========
+guid: f92e90d71795f92499a5c1f8e6d0a102
+folderAsset: yes
+>>>>>>>> 1316b68b060dadd2355c2250daa49334f6d3dfea:3DProject_newScaryHouse/Assets/Scenes/MainScene.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
