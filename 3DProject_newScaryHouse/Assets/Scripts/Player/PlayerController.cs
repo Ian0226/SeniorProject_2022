@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
                 nowInteractiveObj.GetComponentInParent<DoorController>().Interactive();
                 break;
             case "Item":
+                nowInteractiveObj.GetComponent<ItemController>().Interactive();
                 //調用互動物件的方法
                 break;
         }
