@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case "Item":
                 nowInteractiveObj.GetComponent<ItemController>().Interactive();
-                //調用互動物件的方法
+                Destroy(nowInteractiveObj);
                 break;
         }
     }

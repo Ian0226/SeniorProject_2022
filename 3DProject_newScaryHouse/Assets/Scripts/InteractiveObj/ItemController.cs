@@ -4,5 +4,14 @@ using UnityEngine;
 
 public class ItemController : InteractableObjBase
 {
-    public override void Interactive() { }
+    [SerializeField]
+    private Sprite itemSprite;
+    public override void Interactive() 
+    {
+        Inventory.SetObj(this.gameObject);
+    }
+    public Sprite GetSprite()
+    {
+        return itemSprite;
+    }
 }
