@@ -15,6 +15,7 @@ public class GameLoop : MonoBehaviour
     void Start()
     {
         sceneStateController.SetState(new StartState(sceneStateController), "");
+        Physics.autoSyncTransforms = true;
     }
 
     void Update()

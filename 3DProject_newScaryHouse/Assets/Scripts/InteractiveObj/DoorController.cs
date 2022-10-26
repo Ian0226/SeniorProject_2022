@@ -100,11 +100,13 @@ public class DoorController : InteractableObjBase
         {
             if (doorOpen == false)
             {
+                //開門音效
                 doorOpen = true;
                 InvokeRepeating("OpenTheDoor", doorMove, doorMove);
             }
             else if (doorOpen == true)
             {
+                //關門音效
                 doorOpen = false;
                 InvokeRepeating("CloseTheDoor", doorMove, doorMove);
             }
@@ -126,5 +128,10 @@ public class DoorController : InteractableObjBase
     private void DoorLockInteractiveEffect()
     {
 
+    }
+
+    public void SetDoorLock(bool lockState)
+    {
+        doorLock = lockState;
     }
 }

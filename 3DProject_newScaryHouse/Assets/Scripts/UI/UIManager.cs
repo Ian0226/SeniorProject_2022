@@ -14,10 +14,22 @@ public class UIManager : MonoBehaviour
     }
     [SerializeField]
     private Image[] inventoryImgs;
+    
+    [Header("預覽物件頁面")]
+    private GameObject itemPreviewPanel = null;
 
-    public void ShowText(bool textStatus)
+    public void Initialize()
     {
-        interactiveText.SetActive(textStatus);
+        itemPreviewPanel = GameObject.Find("ItemPreviewPanel");
+        itemPreviewPanel.GetComponent<Image>().enabled = false;
+    }
+    public void SetTextStatus(bool status)
+    {
+        interactiveText.SetActive(status);
+    }
+    public void SetItemPreviewPanelStatus(bool status)
+    {
+        itemPreviewPanel.GetComponent<Image>().enabled = status;
     }
     private void Update()
     {

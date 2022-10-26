@@ -8,6 +8,7 @@ public class ItemController : InteractableObjBase
     private Sprite itemSprite;
     public override void Interactive() 
     {
+
         Inventory.SetObj(this.gameObject);
     }
     public Sprite GetSprite()

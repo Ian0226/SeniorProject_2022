@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             nowInteractiveObj = null;
-            uiManager.ShowText(false);
+            uiManager.SetTextStatus(false);
         }
         //判斷互動UI是否已彈出
         if (uiManager.InteractiveText.activeInHierarchy == true)
@@ -144,11 +144,11 @@ public class PlayerController : MonoBehaviour
         
         if (hitObj.transform.gameObject.layer == 6 && nowInteractiveObj!=null)
         {
-            uiManager.ShowText(true);
+            uiManager.SetTextStatus(true);
         }
         else
         {
-            uiManager.ShowText(false);
+            uiManager.SetTextStatus(false);
         }
     }
     /*

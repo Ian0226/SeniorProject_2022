@@ -10,7 +10,9 @@ public class MainGameState_1 : ISceneState
     }
     public override void StateBegin()
     {
-
+        GameObject.Find("RespawnPoint").transform.position = new Vector3(26.13f, 3, 17.02f);
+        GameObject.Find("Player").transform.position = GameObject.Find("RespawnPoint").transform.position;
+        GameObject.Find("Canvas").GetComponent<UIManager>().Initialize();
     }
     public override void StateUpdate()
     {
