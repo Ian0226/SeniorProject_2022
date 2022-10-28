@@ -5,37 +5,31 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject interactiveText;
-    public GameObject InteractiveText
-    {
-        get { return interactiveText; }
-        set { interactiveText = value; }
-    }
-    [SerializeField]
-    private Image[] inventoryImgs;
-    
-    [Header("預覽物件頁面")]
-    private GameObject itemPreviewPanel = null;
+    private InventoryInterface inventoryInterface = new InventoryInterface();
+    private InteractiveInterface interactiveInterface = new InteractiveInterface();
+    private GamePauseInterface gamePauseInterface = new GamePauseInterface();
 
-    public void Initialize()
+    public InventoryInterface GetInventoryInterface()
     {
-        itemPreviewPanel = GameObject.Find("ItemPreviewPanel");
-        itemPreviewPanel.GetComponent<Image>().enabled = false;
+        return inventoryInterface;
     }
-    public void SetTextStatus(bool status)
+    public InteractiveInterface GetInteractiveInterface()
     {
-        interactiveText.SetActive(status);
+        return interactiveInterface;
     }
-    public void SetItemPreviewPanelStatus(bool status)
+    public GamePauseInterface GetGamePauseInterface()
     {
-        itemPreviewPanel.GetComponent<Image>().enabled = status;
+        return gamePauseInterface;
     }
-    private void Update()
+    public void UIInitialize()
     {
-        for(int i=0;i< Inventory.GetObjs().Count; i++)
-        {
-            inventoryImgs[i].sprite = Inventory.FindItemSpriteByInt(i);
-        }
+        inventoryInterface.Initialize();
+        interactiveInterface.Initialize();
+    }
+    public void UIUpdate()
+    {
+        inventoryInterface.Update();
+        interactiveInterface.Update();
+        
     }
 }

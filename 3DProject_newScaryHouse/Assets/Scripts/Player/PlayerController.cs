@@ -44,6 +44,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private UIManager uiManager;
 
+    private void Awake()
+    {
+        uiManager.UIInitialize();
+    }
     private void Start()
     {
         playerTransform = GetComponent<Transform>();
@@ -56,6 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         CameraCtrl();
+        uiManager.UIUpdate();
 
         ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width /2, Screen.height /2, 0));
         if(Physics.Raycast(ray, out hitObj, interactiveRange))
@@ -69,10 +74,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             nowInteractiveObj = null;
-            uiManager.SetTextStatus(false);
+            uiManager.GetInteractiveInterface().SetTextStatus(false);
         }
         //判斷互動UI是否已彈出
-        if (uiManager.InteractiveText.activeInHierarchy == true)
+        if (uiManager.GetInteractiveInterface().InteractiveHint.activeInHierarchy == true)
         {
             //點擊E互動
             if (Input.GetKeyDown(KeyCode.E))
@@ -134,6 +139,7 @@ public class PlayerController : MonoBehaviour
                 nowInteractiveObj.GetComponentInParent<DoorController>().Interactive();
                 break;
             case "Item":
+                uiManager.GetInteractiveInterface().SetItemPreviewPanelStatus(true);
                 nowInteractiveObj.GetComponent<ItemController>().Interactive();
                 Destroy(nowInteractiveObj);
                 break;
@@ -144,11 +150,11 @@ public class PlayerController : MonoBehaviour
         
         if (hitObj.transform.gameObject.layer == 6 && nowInteractiveObj!=null)
         {
-            uiManager.SetTextStatus(true);
+            uiManager.GetInteractiveInterface().SetTextStatus(true);
         }
         else
         {
-            uiManager.SetTextStatus(false);
+            uiManager.GetInteractiveInterface().SetTextStatus(false);
         }
     }
     /*
