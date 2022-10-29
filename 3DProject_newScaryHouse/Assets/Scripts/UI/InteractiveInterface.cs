@@ -43,11 +43,14 @@ public class InteractiveInterface : IUserInterface
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            SetTextStatus(false);
+            EventsStorage.Singleton.onCustomEvent.Invoke(false);
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            EventsStorage.Singleton.onCustomEvent.Invoke(true);
         }
     }
 }

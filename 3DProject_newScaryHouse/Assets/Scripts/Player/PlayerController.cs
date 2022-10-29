@@ -44,48 +44,57 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private UIManager uiManager;
 
+    private bool playerControlStatus;
+
     private void Awake()
     {
         uiManager.UIInitialize();
+        EventsStorage.Singleton.onCustomEvent.AddListener(SetPlayerControlStatus);
     }
     private void Start()
     {
+        playerControlStatus = true;
         playerTransform = GetComponent<Transform>();
         mainCameraTransform = Camera.main.GetComponent<Transform>();
         playerCtrl = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
-        
     }
     private void Update()
     {
-        Move();
-        CameraCtrl();
         uiManager.UIUpdate();
-
-        ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width /2, Screen.height /2, 0));
-        if(Physics.Raycast(ray, out hitObj, interactiveRange))
+        if (playerControlStatus)
         {
-            //hitObj.transform.SendMessage("HitByRaycast", gameObject, SendMessageOptions.DontRequireReceiver);
-            nowInteractiveObj = hitObj.transform.gameObject;
-            Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
-            DetectInteractiveObj();
-            //print(hitObj.transform.name);
+            Move();
+            CameraCtrl();
+            ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            if (Physics.Raycast(ray, out hitObj, interactiveRange))
+            {
+                //hitObj.transform.SendMessage("HitByRaycast", gameObject, SendMessageOptions.DontRequireReceiver);
+                nowInteractiveObj = hitObj.transform.gameObject;
+                Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
+                DetectInteractiveObj();
+                //print(hitObj.transform.name);
+            }
+            else
+            {
+                nowInteractiveObj = null;
+                uiManager.GetInteractiveInterface().SetTextStatus(false);
+            }
+            //判斷互動UI是否已彈出
+            if (uiManager.GetInteractiveInterface().InteractiveHint.activeInHierarchy == true)
+            {
+                //點擊E互動
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    //調用互動方法
+                    PlayerInteractive(hitObj.transform.gameObject);
+                }
+
+            }
         }
         else
         {
-            nowInteractiveObj = null;
-            uiManager.GetInteractiveInterface().SetTextStatus(false);
-        }
-        //判斷互動UI是否已彈出
-        if (uiManager.GetInteractiveInterface().InteractiveHint.activeInHierarchy == true)
-        {
-            //點擊E互動
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                //調用互動方法
-                PlayerInteractive(hitObj.transform.gameObject);
-            }
-               
+
         }
         Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
         //print(hitObj.transform.gameObject.layer + " " + nowInteractiveObj.name.ToString() + " " + hitObj.transform.name);
@@ -156,6 +165,10 @@ public class PlayerController : MonoBehaviour
         {
             uiManager.GetInteractiveInterface().SetTextStatus(false);
         }
+    }
+    private void SetPlayerControlStatus(bool status)
+    {
+        playerControlStatus = status;
     }
     /*
     private void OnTriggerEnter(Collider other)

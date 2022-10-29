@@ -56,24 +56,26 @@
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\MainGameState_2.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\MainMenuState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\UI\GamePauseInterface.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\MainGameState_6.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\MainGameState_4.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\ItemController.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\MainGameState_1.cs" />
+    <Compile Include="Assets\Scripts\UI\IUserInterface.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\DoorController.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\SceneStateController.cs" />
+    <Compile Include="Assets\Scripts\UI\InventoryInterface.cs" />
     <Compile Include="Assets\Scripts\Scene\GameLoop.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\ISceneState.cs" />
+    <Compile Include="Assets\Scripts\UI\InteractiveInterface.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\MainGameState_3.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\MainGameState_5.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneScript\StartState.cs" />
     <Compile Include="Assets\Scripts\InteractiveObj\InteractableObjBase.cs" />
+    <Compile Include="Assets\Scripts\EventsStorage.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
-    <Compile Include="Assets\Scripts\UI\InventoryInterface.cs" />
-    <Compile Include="Assets\Scripts\UI\InteractiveInterface.cs" />
-    <Compile Include="Assets\Scripts\UI\GamePauseInterface.cs" />
-    <Compile Include="Assets\Scripts\UI\IUserInterface.cs" />
+    <Compile Include="Assets\Scripts\CustomEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetPack\Kevin Iglesias\3DCharacterDummy\Readme.txt" />
