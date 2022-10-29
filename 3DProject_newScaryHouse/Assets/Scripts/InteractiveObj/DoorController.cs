@@ -26,6 +26,16 @@ public class DoorController : InteractableObjBase
     [SerializeField]
     private bool doorLock;
 
+    [Header("音效")]
+    [SerializeField]
+    private AudioSource doorAudio_1;
+
+    [SerializeField]
+    private AudioSource doorAudio_2;
+
+    [SerializeField]
+    private AudioSource doorAudio_3;
+
     [Header("用來解鎖門的物件")]
     [SerializeField]
     private GameObject unlockDoorObj = null;
@@ -101,12 +111,14 @@ public class DoorController : InteractableObjBase
             if (doorOpen == false)
             {
                 //開門音效
+                doorAudio_1.PlayOneShot(doorAudio_1.clip);
                 doorOpen = true;
                 InvokeRepeating("OpenTheDoor", doorMove, doorMove);
             }
             else if (doorOpen == true)
             {
                 //關門音效
+                doorAudio_2.PlayOneShot(doorAudio_2.clip);
                 doorOpen = false;
                 InvokeRepeating("CloseTheDoor", doorMove, doorMove);
             }
@@ -117,17 +129,14 @@ public class DoorController : InteractableObjBase
         }
         else
         {
-            //if(InteractiveObjDB玩家物品欄類別的list中有跟unlockDoorObj一樣的物件)
-            //  把門解鎖並開門
-            //else
-            //  DoorLockInteractiveEffect();
+            DoorLockInteractiveEffect();
         }
     }
 
     //門鎖住時的互動效果(待完成)
     private void DoorLockInteractiveEffect()
     {
-
+        doorAudio_3.PlayOneShot(doorAudio_3.clip);
     }
 
     public void SetDoorLock(bool lockState)
