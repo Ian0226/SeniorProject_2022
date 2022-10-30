@@ -150,7 +150,10 @@ public class PlayerController : MonoBehaviour
             case "Item":
                 uiManager.GetInteractiveInterface().SetItemPreviewPanelStatus(true);
                 nowInteractiveObj.GetComponent<ItemController>().Interactive();
-                Destroy(nowInteractiveObj);
+                GameObject itemContainer = GameObject.Find("ItemContainer");
+                nowInteractiveObj.transform.position = itemContainer.transform.position;
+                nowInteractiveObj.transform.SetParent(itemContainer.transform);
+                //Destroy(nowInteractiveObj);
                 break;
         }
     }
@@ -170,44 +173,15 @@ public class PlayerController : MonoBehaviour
     {
         playerControlStatus = status;
     }
-    /*
+    
     private void OnTriggerEnter(Collider other)
     {
-        nowCollisionObj = other.gameObject;
-        switch(other.tag)
+        switch (other.gameObject.name)
         {
-            case "DoorCollider":
-                isCollide = true;
+            case "EventTriggerCollider_1":
+                EventsStorage.Singleton.onCustomEventInt.Invoke(1);
+                Destroy(other.gameObject);
                 break;
         }
     }
-    private void OnTriggerStay(Collider other)
-    {
-        switch (other.tag)
-        {
-            case "DoorCollider":
-                if(Physics.Raycast(ray, out hitObj, interactiveRange) && hitObj.transform.gameObject.tag == "Door")
-                {
-                    uiManager.ShowText(true);
-                }
-                else
-                {
-                    uiManager.ShowText(false);
-                }
-                break;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        nowCollisionObj = null;
-        nowInteractiveObj = null;
-        switch (other.tag)
-        {
-            case "DoorCollider":
-                isCollide = false;
-                uiManager.ShowText(false);
-                break;
-        }
-    }
-    */
 }

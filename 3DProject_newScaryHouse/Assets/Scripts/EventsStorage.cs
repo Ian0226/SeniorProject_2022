@@ -19,5 +19,6 @@ public class EventsStorage : UnityEvent<bool>
         }
     }
     public CustomEvent onCustomEvent = new CustomEvent();
+    public CustomeEventInt onCustomEventInt = new CustomeEventInt();
     private EventsStorage() { }
 }

@@ -8,3 +8,8 @@ public class CustomEvent : UnityEvent<bool>
 {
     
 }
+[System.Serializable]
+public class CustomeEventInt : UnityEvent<int>
+{
+
+}

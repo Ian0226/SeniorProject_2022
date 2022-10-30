@@ -109,18 +109,16 @@ public class DoorController : InteractableObjBase
         if (!doorLock)
         {
             if (doorOpen == false)
-            {
-                //開門音效
-                doorAudio_1.PlayOneShot(doorAudio_1.clip);
+            { 
                 doorOpen = true;
                 InvokeRepeating("OpenTheDoor", doorMove, doorMove);
+                doorAudio_1.PlayOneShot(doorAudio_1.clip);
             }
             else if (doorOpen == true)
             {
-                //關門音效
-                doorAudio_2.PlayOneShot(doorAudio_2.clip);
                 doorOpen = false;
                 InvokeRepeating("CloseTheDoor", doorMove, doorMove);
+                doorAudio_2.PlayOneShot(doorAudio_2.clip);
             }
             else
             {
@@ -142,5 +140,20 @@ public class DoorController : InteractableObjBase
     public void SetDoorLock(bool lockState)
     {
         doorLock = lockState;
+    }
+    public void ForceInteractiveDoor(bool closeOrOpen)
+    {
+        if (closeOrOpen)
+        {
+            doorOpen = true;
+            InvokeRepeating("OpenTheDoor", doorMove, doorMove);
+            doorAudio_1.PlayOneShot(doorAudio_1.clip);
+        }
+        else
+        {
+            doorOpen = false;
+            InvokeRepeating("CloseTheDoor", doorMove, doorMove);
+            doorAudio_2.PlayOneShot(doorAudio_2.clip);
+        }
     }
 }

@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  mouseSensitivity: 500
+  mouseSensitivity: 300
   gravity: 15
   interactiveRange: 5
   uiManager: {fileID: 0}
