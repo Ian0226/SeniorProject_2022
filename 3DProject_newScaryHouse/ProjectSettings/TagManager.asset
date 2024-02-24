@@ -8,22 +8,36 @@ TagManager:
   - DoorCollider
   - Item
   - EventTrigger
+  - DoorAxis
+  - EnemyStayPoint
+  - ReadOnlyItem
+  - effectAudio
+  - InteractiveActionItem
+  - EnemyStayPoint_State2
+  - Enemy
+  - PaperPiecePosition
+  - PaperPiece
+  - PaperPieceCollectedPosition
+  - EffectAudio
+  - BigInteractiveObject
+  - Lock
+  - InteractiveItemLock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - InteractiveLayer
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - InteractiveHintLayer
+  - RoomDoor
+  - PullDoor
+  - Drawer
+  - LimitArea
+  - PlayerDetectEnemyCol
+  - EnemyStayPoint_State2
+  - Enemy
   - 
   - 
   - 

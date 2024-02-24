@@ -4,8 +4,14 @@ using UnityEngine;
 
 public abstract class IUserInterface
 {
+    protected MainGame m_MainGame = null;
     protected GameObject m_RootUI;
     private bool m_bActive;
+
+    public IUserInterface(MainGame mainGame)
+    {
+        m_MainGame = mainGame;
+    }
 
     public bool IsVisible()
     {

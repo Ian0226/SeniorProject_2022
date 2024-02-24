@@ -10,6 +10,7 @@ public class ISceneState
         get { return stateName; }
         set { stateName = value; }
     }
+    protected bool sceneChanged;
     protected SceneStateController m_Controller = null;
     public ISceneState(SceneStateController Controller)
     {

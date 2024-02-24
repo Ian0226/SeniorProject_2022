@@ -22,11 +22,14 @@ EditorBuildSettings:
     guid: dcdab0a1aabb44b43988d15076270a3a
   - enabled: 1
     path: Assets/Scenes/MainScene/MainGameScene_4.unity
-    guid: 5125d71b5a9f23b40aad7a6ef4a5336d
-  - enabled: 1
-    path: Assets/Scenes/MainScene/MainGameScene_5.unity
-    guid: 6badab9481e2c1f479d6ba4879d93ffb
-  - enabled: 1
-    path: Assets/Scenes/MainScene/MainGameScene_6.unity
-    guid: 48a833eec03032842bb204b8b7750e63
+    guid: 98845d1fa640d324faddaf183c8ee3e0
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
