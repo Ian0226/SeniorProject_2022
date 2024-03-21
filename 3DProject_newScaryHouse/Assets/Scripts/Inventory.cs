@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Inventory class,store the items that player collected,give some operations on player inventory panel.
+/// </summary>
 public class Inventory : MonoBehaviour
 {
     private static List<GameObject> interactiveObjs = new List<GameObject>();
@@ -42,14 +45,23 @@ public class Inventory : MonoBehaviour
         return interactiveObjs;
     }
 
+    /// <summary>
+    /// Store object into player inventory.
+    /// </summary>
+    /// <param name="obj">The gameObject want to store.</param>
     public static void SetObj(GameObject obj)
     {
         interactiveObjs.Add(obj);
         itemSprites.Add(obj.GetComponent<ItemObj>().GetSprite());
     }
 
-   public static GameObject FindObj(string objName) 
-   {
+    /// <summary>
+    /// Find object in interactiveObjs list by object name,and return it.
+    /// </summary>
+    /// <param name="objName">The object name that want to find.</param>
+    /// <returns>The gameObject want to find.</returns>
+    public static GameObject FindObj(string objName) 
+    {
         GameObject container = null;
         foreach(GameObject obj in interactiveObjs)
         {
@@ -64,7 +76,7 @@ public class Inventory : MonoBehaviour
             }
         }
         return container;
-   }
+    }
     
     public static GameObject FindObjByInt(int num) 
     {
@@ -75,6 +87,10 @@ public class Inventory : MonoBehaviour
         return itemSprites[num];
     }
 
+    /// <summary>
+    /// Handle remove item in interactiveObjs list. 
+    /// </summary>
+    /// <param name="name">The item name you want to clear.</param>
     public static void ClearItemByName(string name)
     {
         for(int i=0;i< interactiveObjs.Count;i++)
@@ -91,6 +107,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < interactiveObjs.Count; i++)
             Debug.Log(interactiveObjs[i] + "" + itemSprites[i]);
     }
+
     public static void ClearAllItem()
     {
         interactiveObjs.Clear();

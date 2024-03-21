@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Store all item in scene,and handle there operations.
+/// </summary>
 public class ItemController : InteractableObjBase
 {
     private int itemNum;

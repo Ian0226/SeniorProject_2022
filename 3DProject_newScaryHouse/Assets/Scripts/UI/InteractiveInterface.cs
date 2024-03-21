@@ -43,7 +43,7 @@ public class InteractiveInterface : IUserInterface
     }
     public override void Initialize()
     {
-        m_RootUI = UITool.FindUIGameObject("InteractiveInterface");
+        m_RootUI = Unity.CustomUITool.UITool.FindUIGameObject("InteractiveInterface");
         interactiveHint = m_RootUI.transform.Find("InteractiveHint").gameObject;
         doorLockHint = m_RootUI.transform.Find("LockHintText").gameObject;
         itemPreviewPanel = m_RootUI.transform.Find("ItemPreviewPanel").gameObject;
@@ -51,7 +51,7 @@ public class InteractiveInterface : IUserInterface
         viewItemReturnHint = m_RootUI.transform.Find("Hint").gameObject;
         hintForItem = m_RootUI.transform.Find("HintForItem").gameObject;
         //itemPreviewPanelExitBtn = UITool.GetUIComponent<Button>(itemPreviewPanel, "ExitBtn");
-        itemDescriptText = UnityTool.FindChildGameObject(itemPreviewPanel, "ItemDescriptText").GetComponent<Text>(); 
+        itemDescriptText = Unity.CustomTool.UnityTool.FindChildGameObject(itemPreviewPanel, "ItemDescriptText").GetComponent<Text>(); 
         /*itemPreviewPanelExitBtn.onClick.AddListener(() => {
         {
                 if (m_MainGame.GetGameEventControlSystem.PlayerTutorialHandler.Method.Name.Equals("Tutorial_8_ClosePreviewPanel"))

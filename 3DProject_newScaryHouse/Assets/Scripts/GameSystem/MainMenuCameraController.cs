@@ -11,7 +11,7 @@ public class MainMenuCameraController
     }
     public void Initialize()
     {
-        camera = UnityTool.FindGameObject("Main Camera").transform;
+        camera = Unity.CustomTool.UnityTool.FindGameObject("Main Camera").transform;
     }
     public void Update()
     {

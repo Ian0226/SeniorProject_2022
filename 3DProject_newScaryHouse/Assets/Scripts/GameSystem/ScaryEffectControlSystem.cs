@@ -4,21 +4,22 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Unity.CustomTool;
 
 public class ScaryEffectControlSystem : IGameSystem
 {
-    //®£©Æ­µ®Ä
+    //ï¿½ï¿½ï¿½Æ­ï¿½ï¿½ï¿½
     private AudioSource[] effectAudios;
 
-    //ºµºµª«¥ó(²Ä¥|³õ´º¥Î)
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ä¥|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
     private GameObject[] enemyObjs;
 
     private Volume globalVolume;
 
-    //Post Processing·wÃä
+    //Post Processingï¿½wï¿½ï¿½
     private Vignette vignette;
 
-    //¿O¥ú®ÄªGª«¥ó
+    //ï¿½Oï¿½ï¿½ï¿½ÄªGï¿½ï¿½ï¿½ï¿½
     private List<GameObject> lightsObjs = new List<GameObject>();
     public ScaryEffectControlSystem(MainGame main) : base(main)
     {
@@ -92,18 +93,18 @@ public class ScaryEffectControlSystem : IGameSystem
         foreach(GameObject obj in enemyObjs)
         {
             Debug.Log(obj);
-            obj.transform.FindChild("Head1").DOLookAt(target.transform.position, 1);
+            obj.transform.Find("Head1").DOLookAt(target.transform.position, 1);
         }
     }
 
-    //·wÃä®ÄªG
+    //ï¿½wï¿½ï¿½ÄªG
     public void SetVignetteEffect()
     {
         DOTween.To(() => vignette.intensity.value, x => vignette.intensity.value = x, 0.7f, 0.5f);
         MethodDelayExecuteTool.ExecuteDelayedMethod(25f, () => DOTween.To(() => vignette.intensity.value, x => vignette.intensity.value = x, 0, 0.5f));
     }
 
-    //¿O¥ú¶}Ãö®ÄªG
+    //ï¿½Oï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½ÄªG
     public void LightOpenClose(GameObject bulbObj,GameObject lightObj,bool isOpen)
     {
         if(bulbObj != null)

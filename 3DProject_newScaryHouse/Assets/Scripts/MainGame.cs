@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Contain all game systems,is mediator for all systems,system use this to communicate with other system.
+/// </summary>
 public class MainGame
 {
     private static MainGame _instance;
@@ -78,7 +81,7 @@ public class MainGame
     {
         if(sceneNum != 4)
         {
-            instantiateObjDB = UnityTool.FindGameObject("InstantiateObjDB").GetComponent<InstantiateObjDB>();
+            instantiateObjDB = Unity.CustomTool.UnityTool.FindGameObject("InstantiateObjDB").GetComponent<InstantiateObjDB>();
 
             playerController = new PlayerController(this);
             itemPreviewSystem = new ItemPreviewSystem(this);
@@ -157,35 +160,61 @@ public class MainGame
             sceneAniEffectControlSystem.Update();
         }
     }
-    //獲取玩家物件
+
+    /// <summary>
+    /// Get the player gameObject in the scene.
+    /// </summary>
+    /// <returns>Return gameObject.</returns>
     public GameObject GetPlayer()
     {
         return playerController.PlayerObj;
     }
 
-    //強制開啟或關閉門
+    /// <summary>
+    /// Set door state,use on some game event.
+    /// </summary>
+    /// <param name="doorStatus">True is open,false is close.</param>
+    /// <param name="doorName">The door object name you want to interactive.</param>
+    /// <param name="playAudio">The door audio.</param>
     public void ForceInteractiveDoor(bool doorStatus, string doorName, bool playAudio)
     {
         if (doorController != null)
             doorController.ForceInteractiveDoor(doorStatus, doorName, playAudio);
     }
 
-    //獲取敵人
+    /// <summary>
+    /// Get the enemy gameObject in the scene.
+    /// </summary>
+    /// <returns>Return gameObject.</returns>
     public GameObject GetEnemy()
     {
         return enemyControlSystem.State.EnemyObj;
     }
-    //清除物品欄圖片
+    
+    /// <summary>
+    /// Clear all inventory sprites,when new scene begin,call this.
+    /// </summary>
     public void ClearInventorySprite()
     {
         inventoryInterface.ClearInventorySprite();
     }
-    //顯示字幕
+
+    /// <summary>
+    /// Using font conrtoller system to display font.
+    /// </summary>
+    /// <param name="senName">The sentence you want to display,a sentence is a string array.</param>
+    /// <param name="beginSen">The string in current sentence that begin to display.</param>
+    /// <param name="endSen">The string in current sentence that at last.</param>
     public void StartFontControl(string senName,int beginSen,int endSen)
     {
         fontControlSystem.StartFontControl(senName,beginSen,endSen);
     }
+
     //顯示教學字幕
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="sentence"></param>
     public void DisplayTutorialText(string sentence)
     {
         fontControlSystem.DisplayTutorialText(sentence);

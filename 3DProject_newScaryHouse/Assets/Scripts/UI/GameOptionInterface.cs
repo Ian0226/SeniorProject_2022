@@ -26,15 +26,15 @@ public class GameOptionInterface
         if (SceneManager.GetActiveScene().name == "MainMenuScene")
             gameOptionPanel = GameObject.Find("Canvas").transform.Find("GameOptionInterface").gameObject;
         else
-            gameOptionPanel = UnityTool.FindGameObject("GameOptionInterface");
-        returnButton = UITool.GetUIComponent<Button>(gameOptionPanel, "ReturnButton");
+            gameOptionPanel = Unity.CustomTool.UnityTool.FindGameObject("GameOptionInterface");
+        returnButton = Unity.CustomUITool.UITool.GetUIComponent<Button>(gameOptionPanel, "ReturnButton");
         audioController = new AudioController();
-        mouseSensitivitySlider = UITool.GetUIComponent<Slider>(gameOptionPanel, "MouseSlider");
+        mouseSensitivitySlider = Unity.CustomUITool.UITool.GetUIComponent<Slider>(gameOptionPanel, "MouseSlider");
         if (returnButton != null)
             returnButton.onClick.AddListener(
                                             () => ClosePanel()
                                             );
-        BackMainMenuButton = UITool.GetUIComponent<Button>(gameOptionPanel, "BackMainMenuButton");
+        BackMainMenuButton = Unity.CustomUITool.UITool.GetUIComponent<Button>(gameOptionPanel, "BackMainMenuButton");
         if (BackMainMenuButton != null)
             BackMainMenuButton.onClick.AddListener(
                                                   () => BackMainMenu()

@@ -1,0 +1,11 @@
+{
+    "name": "com.unity.customtool.findobject",
+    "version": "1.0.0",
+    "displayName": "",
+    "description": "Find object in better way.",
+    "unity": "2020.3",
+    "author": {
+      "name": "unknow"
+    },
+    "dependencies": {}
+  }

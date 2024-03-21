@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
 {
     int[] nowNumber = new int[3] { 0, 0, 0 };
@@ -21,7 +20,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
 
         handler = Event_1_EndFirstSentence;
         playerMissionHandler = Mission_1_Move;
-        //³]©wª«¥óªºAction
+        //ï¿½]ï¿½wï¿½ï¿½ï¿½ï¿½Action
         mainGame.GetInteractiveActionObjController.GetObjComponentByName("Painting_1").Action = Painting_1_ChangeScene;
         mainGame.GetInteractiveActionObjController.GetObjComponentByName("Lockbox").ActionWithParam = ItemLockBox_1_Interactive;
 
@@ -31,24 +30,24 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
         handler = action;
     }
 
-    //ª«¥ó­nÄ²µoªº¨Æ¥ó
+    //ï¿½ï¿½ï¿½ï¿½nÄ²ï¿½oï¿½ï¿½ï¿½Æ¥ï¿½
     public void Painting_1_ChangeScene()
     {
         if (Inventory.FindObj("Item_2_Emerald"))
         {
-            //¼½©ñ¶}±ÒÁôÂÃ©Ğ¶¡­µ®Ä
+            //ï¿½ï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½Ã©Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½
             MethodDelayExecuteTool.ExecuteDelayedMethod(0.5f, () => mainGame.GetEffectAudioSourceByName("EffectAudio_1_SecretRoomOpen").
                     PlayOneShot(mainGame.GetEffectAudioSourceByName("EffectAudio_1_SecretRoomOpen").clip));
             GameObject painting = mainGame.GetInteractiveActionObjController.GetObjComponentByName("Painting_1").transform.GetChild(0).gameObject;
             painting.transform.parent.gameObject.layer = LayerMask.NameToLayer("Default");
             painting.GetComponent<MeshRenderer>().material = mainGame.GetInteractiveActionObjController.GetObjComponentByName("Painting_1").ChangedMaterial;
-            ActionStorage.Instance.SetSceneStateNumContainer.Invoke(2);//©I¥s§ó§ï³õ´ºAction¡A¶Ç¤J¾ã¼Æ2¥Nªí³õ´º2
+            ActionStorage.Instance.SetSceneStateNumContainer.Invoke(2);//
         }
         else
         {
             if (!mainGame.GetFontStart())
             {
-                //Debug.Log("Åã¥Ü¦r¹õ");
+                //Debug.Log("ï¿½ï¿½Ü¦rï¿½ï¿½");
                 mainGame.StartFontControl("actionSentences", 0, 2);
             }
         }
@@ -58,7 +57,6 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
         Transform lock01, lock02, lock03;
 
         int[] password = new int[3] { 2, 7, 4 };
-        Debug.Log(obj);
         if (obj.tag == "Lock")
         {
             switch (obj.parent.name)
@@ -74,8 +72,8 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
                         nowNumber[0] = 0;
                     }
                     lock01.GetComponent<Animator>().SetInteger("Number", nowNumber[0]);
-                    obj.parent.parent.FindChild("AudioContainer").GetComponent<AudioSource>().
-                        PlayOneShot(obj.parent.parent.FindChild("AudioContainer").GetComponent<AudioObj>().GetAudiosByInt(1));
+                    obj.parent.parent.Find("AudioContainer").GetComponent<AudioSource>().
+                        PlayOneShot(obj.parent.parent.Find("AudioContainer").GetComponent<AudioObj>().GetAudiosByInt(1));
 
                     break;
                 case "Lock02":
@@ -89,8 +87,8 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
                         nowNumber[1] = 0;
                     }
                     lock02.GetComponent<Animator>().SetInteger("Number", nowNumber[1]);
-                    obj.parent.parent.FindChild("AudioContainer").GetComponent<AudioSource>().
-                        PlayOneShot(obj.parent.parent.FindChild("AudioContainer").GetComponent<AudioObj>().GetAudiosByInt(1));
+                    obj.parent.parent.Find("AudioContainer").GetComponent<AudioSource>().
+                        PlayOneShot(obj.parent.parent.Find("AudioContainer").GetComponent<AudioObj>().GetAudiosByInt(1));
 
                     break;
                 case "Lock03":
@@ -104,8 +102,8 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
                         nowNumber[2] = 0;
                     }
                     lock03.GetComponent<Animator>().SetInteger("Number", nowNumber[2]);
-                    obj.parent.parent.FindChild("AudioContainer").GetComponent<AudioSource>().
-                        PlayOneShot(obj.parent.parent.FindChild("AudioContainer").GetComponent<AudioObj>().GetAudiosByInt(1));
+                    obj.parent.parent.Find("AudioContainer").GetComponent<AudioSource>().
+                        PlayOneShot(obj.parent.parent.Find("AudioContainer").GetComponent<AudioObj>().GetAudiosByInt(1));
 
                     break;
             }
@@ -118,9 +116,9 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
             if (nowNumber[0] == password[0] && nowNumber[1] == password[1] && nowNumber[2] == password[2])
             {
                 unLockState = true;
-                obj.parent.parent.FindChild("Cover").GetComponent<Animator>().SetBool("CoverOpen", true);
-                obj.parent.parent.FindChild("AudioContainer").GetComponent<AudioSource>().
-                    PlayOneShot(obj.parent.parent.FindChild("AudioContainer").GetComponent<AudioObj>().GetAudiosByInt(0));
+                obj.parent.parent.Find("Cover").GetComponent<Animator>().SetBool("CoverOpen", true);
+                obj.parent.parent.Find("AudioContainer").GetComponent<AudioSource>().
+                    PlayOneShot(obj.parent.parent.Find("AudioContainer").GetComponent<AudioObj>().GetAudiosByInt(0));
             }
             
             
@@ -128,10 +126,10 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
         }
     }
 
-    //ª±®a±Ğ¾ÇAction
+    //ï¿½ï¿½ï¿½aï¿½Ğ¾ï¿½Action
     public void Tutorial_1_Move()
     {
-        mainGame.DisplayTutorialText("WASDÁä²¾°Ê");
+        mainGame.DisplayTutorialText("WASDç§»å‹•");
         if (Input.GetKeyDown(KeyCode.W))
         {
             tutorialInputCount++;
@@ -157,7 +155,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     public void Tutorial_2_Crouch()
     {
         tutorialInputCount = 0;
-        mainGame.DisplayTutorialText("¥ªCtrlÁäÃÛ¤U");
+        mainGame.DisplayTutorialText("Ctrlè¹²ä¸‹");
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             playerTutorialHandler = Tutorial_3_ShowOptionPanel;
@@ -166,7 +164,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     public void Tutorial_3_ShowOptionPanel()
     {
         tutorialInputCount = 0;
-        mainGame.DisplayTutorialText("ESCÁä¼È°±¹CÀ¸¨Ã©I¥s¿ï³æ­¶­±");
+        mainGame.DisplayTutorialText("ESCé–‹å•Ÿé¸å–®");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             playerTutorialHandler = Tutorial_3_CloseOptionPanel;
@@ -174,7 +172,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     }
     public void Tutorial_3_CloseOptionPanel()
     {
-        mainGame.DisplayTutorialText("¦A¦¸ÂIÀ»ESCÁä©ÎÂIÀ»ªğ¦^ÁäÃö³¬¿ï³æ¨Ãªğ¦^¹CÀ¸");
+        mainGame.DisplayTutorialText("ESCé—œé–‰é¸å–®");
         if (mainGame.GetGameOptionPanel().gameObject.activeInHierarchy == false)
         {
             tutorialInputCount = 0;
@@ -183,7 +181,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     }
     public void Tutorial_4_Sprint()
     {
-        mainGame.DisplayTutorialText("¥ªShiftÁä½Ä¨ë");
+        mainGame.DisplayTutorialText("Shiftè·‘æ­¥");
         if (Input.GetKey(KeyCode.LeftShift))
         {
             tutorialInputCount = 0;
@@ -192,7 +190,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     }
     public void Tutorial_5_Interactive()
     {
-        mainGame.DisplayTutorialText("EÁä»Pª«¥ó¤¬°Ê");
+        mainGame.DisplayTutorialText("Eäº’å‹•");
         if(tutorialInputCount == 1)
         {
             mainGame.EndTutorialText();
@@ -211,7 +209,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     public void Tutorial_6_MouseDragPreviewItem()
     {
         tutorialInputCount = 0;
-        mainGame.DisplayTutorialText("·Æ¹«´å¼Ğ©ì¦²¥iÂà°ÊÀËµøª«¥ó");
+        mainGame.DisplayTutorialText("æ»‘é¼ å³éµæ‹–æ›³ä»¥é¸è½‰ç‰©é«”");
         if (Input.GetMouseButtonUp(0))
         {
             playerTutorialHandler = Tutorial_7_InteractiveItemInItemPreviewPanel;
@@ -220,7 +218,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     public void Tutorial_7_InteractiveItemInItemPreviewPanel()
     {
         tutorialInputCount = 0;
-        mainGame.DisplayTutorialText("ª«¥ó¤W¦³¨ä¥Lª«¥ó®É¹ï¨äÂIÀ»·Æ¹«¥kÁä»P¨ä¤¬°Ê");
+        mainGame.DisplayTutorialText("æ»‘é¼ å³éµé»æ“Šèˆ‡ç‰©ä»¶ç‰©å‹•");
         if(mainGame.GetItemPreviewPanel().activeInHierarchy && Inventory.GetObjs().Count >= 2)
         {
             playerTutorialHandler = Tutorial_8_ClosePreviewPanel;
@@ -228,7 +226,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     }
     public void Tutorial_8_ClosePreviewPanel()
     {
-        mainGame.DisplayTutorialText("EÁä¥iÃö³¬ª«¥ó¹wÄı­¶­±");
+        mainGame.DisplayTutorialText("Eéµé—œé–‰ç‰©ä»¶é è¦½é é¢");
         if (tutorialInputCount >= 1)
         {
             tutorialInputCount = 0;
@@ -247,7 +245,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     }
     public void Tutorial_9_ChangePreviewItemInPreviewPanel()
     {
-        mainGame.DisplayTutorialText("¼Æ¦rÁä1~5¥i¤Á´«ª««~Äæ¸Ìªºª«¥ó¶i¦æ¹wÄı");
+        mainGame.DisplayTutorialText("æ•¸å­—éµ1~5é¸æ“‡ç‰©ä»¶é€²è¡Œé è¦½");
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             tutorialInputCount++;
@@ -286,7 +284,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     }
     public void Tutorial_10_ChoosePreviewItem()
     {
-        mainGame.DisplayTutorialText("Ãö³¬¹wÄı­¶­±«á¡A¨Ï¥Î¼Æ¦rÁä1~5¥i¿ï¾Üª««~Äæ¸Ìªºª«¥ó¦A¦¸¶i¦æ¹wÄı");
+        mainGame.DisplayTutorialText("æ•¸å­—éµ1~5é¸æ“‡ç‰©ä»¶");
         if (!mainGame.GetItemPreviewPanel().activeInHierarchy)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -323,7 +321,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
         tutorialInputCount = 0;
         if (!mainGame.GetItemPreviewPanel().activeInHierarchy)
         {
-            mainGame.DisplayTutorialText("FÁä®³¥X¤â¾÷");
+            mainGame.DisplayTutorialText("Fä½¿ç”¨ç‰¹æ®Šç‰©å“");
             if (Input.GetKeyDown(KeyCode.F))
             {
                 playerTutorialHandler = Tutorial_12_UnUsePhone;
@@ -333,7 +331,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
     public void Tutorial_12_UnUsePhone()
     {
         tutorialInputCount = 0;
-        mainGame.DisplayTutorialText("¦A¦¸ÂIÀ»FÁä¦¬°_¤â¾÷");
+        mainGame.DisplayTutorialText("æ”¶èµ·ç‰¹æ®Šç‰©å“");
         if (Input.GetKeyDown(KeyCode.F))
         {
             mainGame.EndTutorialText();
@@ -341,13 +339,11 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
         }
     }
 
-    //ª±®a¥ô°È
     public void Mission_1_Move()
     {
 
     }
 
-    //¹CÀ¸¬yµ{­nÄ²µoªº¨Æ¥ó
     public void Event_Initial()
     {
         mainGame.StartFontControl("sentences", 0, 6);
@@ -379,7 +375,7 @@ public class GameEventControlSystem_Scene1 : GameEventControlSystemBase
             if (mainGame.DoorController.GetDoorObjByName("DoorAxis_5").DoorOpen == true)
             {
                 
-                mainGame.ForceInteractiveDoor(false, "DoorAxis_5", true);//Ãö³¬²Ä¤­®°ªù
+                mainGame.ForceInteractiveDoor(false, "DoorAxis_5", true);//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½ï¿½ï¿½
                 mainGame.DoorController.SetDoorLock(true, "DoorAxis_5");
                 mainGame.StartFontControl("sentences", 6, 7);
             }

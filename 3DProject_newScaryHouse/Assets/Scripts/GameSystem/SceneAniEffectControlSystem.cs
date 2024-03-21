@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.CustomUITool;
 
 public class SceneAniEffectControlSystem : IGameSystem
 {
@@ -46,7 +47,7 @@ public class SceneAniEffectControlSystem : IGameSystem
     }
     public override void Initialize()
     {
-        coverSceneImg = UnityTool.FindGameObject("CoverPlayerEyesImg").GetComponent<Image>();
+        coverSceneImg = Unity.CustomTool.UnityTool.FindGameObject("CoverPlayerEyesImg").GetComponent<Image>();
         SetCoverSceneImageActive(false);
 
         if (UITool.FindUIGameObject("EndGamePanel"))
@@ -62,9 +63,9 @@ public class SceneAniEffectControlSystem : IGameSystem
         {
             upPoint = UITool.FindUIGameObject("UpPoint").GetComponent<RectTransform>();
         }
-        if (UnityTool.FindGameObject("InstantiateObjDB").GetComponent<InstantiateObjDB>().EndingText)
+        if (Unity.CustomTool.UnityTool.FindGameObject("InstantiateObjDB").GetComponent<InstantiateObjDB>().EndingText)
         {
-            endingText = UnityTool.FindGameObject("InstantiateObjDB").GetComponent<InstantiateObjDB>().EndingText.gameObject;
+            endingText = Unity.CustomTool.UnityTool.FindGameObject("InstantiateObjDB").GetComponent<InstantiateObjDB>().EndingText.gameObject;
         }
         if(SceneManager.GetActiveScene().name == "MainGameScene_4")
         {

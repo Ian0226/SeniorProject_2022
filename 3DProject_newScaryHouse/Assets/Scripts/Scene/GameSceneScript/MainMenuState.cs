@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.CustomTool;
 
 public class MainMenuState : ISceneState
 {
@@ -15,6 +16,8 @@ public class MainMenuState : ISceneState
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        //When player return to menu,destroy some don't destroy object.
         if(UnityTool.FindGameObject("Player"))
             GameObject.Destroy(UnityTool.FindGameObject("Player"));
         if (UnityTool.FindGameObject("PaperPieceCollectedPosition_0"))

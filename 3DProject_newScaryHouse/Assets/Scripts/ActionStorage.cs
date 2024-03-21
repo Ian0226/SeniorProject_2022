@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 宣告一些遊戲中會使用到的Action，此類別為Singleton，使用Instance獲取該類別物件。
+/// </summary>
 public class ActionStorage
 {
     private static ActionStorage _instance;
@@ -25,6 +28,9 @@ public class ActionStorage
         set { setPlayerControlStatusAction = value; }
     }
 
+    /// <summary>
+    /// Use to change scene.
+    /// </summary>
     private Action<int> setSceneStateNumContainer = (int num) => { GameLoop.testInt = num; };
     public Action<int> SetSceneStateNumContainer
     {
@@ -39,6 +45,9 @@ public class ActionStorage
         set { closeItemPreviewPanelAction = value; }
     }
 
+    /// <summary>
+    /// Contain gameLogic method,which contains all game system's update.
+    /// </summary>
     private Action gameLogicUpdateAction;
     public Action GameLogicUpdateAction
     {

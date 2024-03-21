@@ -21,7 +21,7 @@ public class GameEventControlSystem_Scene4 : GameEventControlSystemBase
     {
         if(mainGame.GetPlayerController.NowCollisionObj != null && mainGame.GetPlayerController.NowCollisionObj.name == "EventTriggerCollider_1")
         {
-            mainGame.Scene4_EnemyBehaviour(UnityTool.FindGameObject("Player").transform);
+            mainGame.Scene4_EnemyBehaviour(Unity.CustomTool.UnityTool.FindGameObject("Player").transform);
             MethodDelayExecuteTool.ExecuteDelayedMethod(2f,() => mainGame.SetEndGamePanelState(true));
             mainGame.SetEndGameAnimeHandlerAction(mainGame.EndGameAnimeHandler);
             SetActionState(null);

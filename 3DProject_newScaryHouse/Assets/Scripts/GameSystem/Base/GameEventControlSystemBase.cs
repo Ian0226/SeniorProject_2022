@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The parent of GameEventControlSystem.
+/// </summary>
 public class GameEventControlSystemBase : IGameSystem
 {
-    protected Queue<Action> gameEvents = new Queue<Action>();
-
     protected Action handler;
     public Action Handler
     {

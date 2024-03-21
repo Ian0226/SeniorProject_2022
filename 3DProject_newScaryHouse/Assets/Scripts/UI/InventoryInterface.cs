@@ -24,13 +24,13 @@ public class InventoryInterface : IUserInterface
     }
     public override void Initialize()
     {
-        m_RootUI = UITool.FindUIGameObject("InventoryInterface");
+        m_RootUI = Unity.CustomUITool.UITool.FindUIGameObject("InventoryInterface");
         GameObject inventoryUIObj = m_RootUI.transform.Find("InventoryUI").gameObject;
         specialItemImg = m_RootUI.transform.Find("Field_SpecialItem").GetChild(0).GetComponent<Image>();
 
-        if (UnityTool.FindGameObject("PaperPieceCountText"))
+        if (Unity.CustomTool.UnityTool.FindGameObject("PaperPieceCountText"))
         {
-            paperPieceCountText = UnityTool.FindGameObject("PaperPieceCountText").GetComponent<Text>();
+            paperPieceCountText = Unity.CustomTool.UnityTool.FindGameObject("PaperPieceCountText").GetComponent<Text>();
             paperPieceCountText.gameObject.SetActive(false);
         }
             

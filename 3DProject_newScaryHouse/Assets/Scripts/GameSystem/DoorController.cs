@@ -5,13 +5,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+/// <summary>
+/// Store all door to array in game scene,handle door operations.
+/// </summary>
 public class DoorController : InteractableObjBase
 {
     private int doorNum;
     private GameObject[] doorAxises;
     private DoorObj[] doorObjs;
 
-    
     public DoorController(MainGame mGame) : base(mGame)
     {
         Initialize();
@@ -19,7 +21,7 @@ public class DoorController : InteractableObjBase
     public override void Initialize()
     {
         doorAxises = GameObject.FindGameObjectsWithTag("DoorAxis");
-        //排序
+        //Sort by door number.
         string[] strs = new string[doorAxises.Length];
         for(int i = 0; i < strs.Length; i++)
         {
@@ -30,19 +32,24 @@ public class DoorController : InteractableObjBase
         {
             doorAxises[i] = GameObject.Find(strs[i]);
         }
-        //
+
         doorObjs = new DoorObj[doorAxises.Length];
         for (int i = 0; i < doorObjs.Length; i++)
         {
             doorObjs[i] = doorAxises[i].GetComponent<DoorObj>();
         }
     }
-    //Test
+
     public override void Update()
     {
-        //Debug.Log(doorObjs[doorNum].UnlockDoorObj);
+        //Set door hint UI position.
         doorObjs[doorNum].HintPosition = doorObjs[doorNum].HintPosObj.position;
     }
+
+    /// <summary>
+    /// Handle door interactive.
+    /// </summary>
+    /// <param name="objName">The door name you want to interactive.</param>
     public override void Interactive(string objName)
     {
         FindObjByName(objName);
@@ -54,49 +61,44 @@ public class DoorController : InteractableObjBase
                 doorObjs[doorNum].DoorOpen = true;
                 //doorObjs[doorNum].StartInvokeRepeating("OpenTheDoor");
                 doorObjs[doorNum].DoorAni.SetBool("DoorOpen",true);
-                doorObjs[doorNum].DoorAudio_1.PlayOneShot(doorObjs[doorNum].DoorAudio_1.clip);//開
+                doorObjs[doorNum].DoorAudio_1.PlayOneShot(doorObjs[doorNum].DoorAudio_1.clip);//Open audio.
             }
-            else if (doorObjs[doorNum].DoorOpen == true)
+            else
             {
                 doorObjs[doorNum].DoorOpen = false;
                 //doorObjs[doorNum].StartInvokeRepeating("CloseTheDoor");
                 doorObjs[doorNum].DoorAni.SetBool("DoorOpen", false);
-                doorObjs[doorNum].DoorAudio_2.PlayOneShot(doorObjs[doorNum].DoorAudio_2.clip);//關
-            }
-            else
-            {
-                //this.transform.eulerAngles = doorOriginalTransform;
+                doorObjs[doorNum].DoorAudio_2.PlayOneShot(doorObjs[doorNum].DoorAudio_2.clip);//Close audio.
             }
         }
         else
         {
-            if (doorObjs[doorNum].UnlockDoorObj!=null)
-            {
-                if (Inventory.FindObj(doorObjs[doorNum].UnlockDoorObj.name))
-                {
-                    doorObjs[doorNum].DoorLock = false;
-                    Inventory.ClearItemByName(doorObjs[doorNum].UnlockDoorObj.name);
-                    doorObjs[doorNum].UnlockDoorAudio.PlayOneShot(doorObjs[doorNum].UnlockDoorAudio.clip);
-                    MainGame.Instance.GetDoorLockHintText().SetActive(true);
-                    MainGame.Instance.GetDoorLockHintText().GetComponent<Text>().text = "成功解鎖";
-                    MethodDelayExecuteTool.ExecuteDelayedMethod(0.5f, () => MainGame.Instance.GetDoorLockHintText().SetActive(false));
-                    //Debug.Log(Inventory.FindObj(doorObjs[doorNum].UnlockDoorObj.name));
-                    //Debug.Log(doorObjs[doorNum].UnlockDoorObj.name);
-                }
-                else
-                {
-                    DoorLockInteractiveEffect();
-                }
-            }
-            else
+            if(doorObjs[doorNum].UnlockDoorObj == null)
             {
                 DoorLockInteractiveEffect();
+                return;
             }
+
+            if (!Inventory.FindObj(doorObjs[doorNum].UnlockDoorObj.name))
+            {
+                DoorLockInteractiveEffect();
+                return;
+            }
+
+            doorObjs[doorNum].DoorLock = false;
+            Inventory.ClearItemByName(doorObjs[doorNum].UnlockDoorObj.name);
+            doorObjs[doorNum].UnlockDoorAudio.PlayOneShot(doorObjs[doorNum].UnlockDoorAudio.clip);
+            MainGame.Instance.GetDoorLockHintText().SetActive(true);
+            MainGame.Instance.GetDoorLockHintText().GetComponent<Text>().text = "成功解鎖";
+            MethodDelayExecuteTool.ExecuteDelayedMethod(0.5f, () => MainGame.Instance.GetDoorLockHintText().SetActive(false));
+            //Debug.Log(Inventory.FindObj(doorObjs[doorNum].UnlockDoorObj.name));
+            //Debug.Log(doorObjs[doorNum].UnlockDoorObj.name);
         } 
     }
     
-
-    //門鎖住時的互動效果(待完成)
+    /// <summary>
+    /// Door lock effect when door is locked.
+    /// </summary>
     private void DoorLockInteractiveEffect()
     {
         int value = 0;
@@ -115,6 +117,13 @@ public class DoorController : InteractableObjBase
     {
         GetDoorObjByName(doorName).DoorLock = lockState;
     }
+
+    /// <summary>
+    /// Call this when player trigger close door event.
+    /// </summary>
+    /// <param name="doorStatus">True is door open,false is close.</param>
+    /// <param name="doorName">The door you want to control.</param>
+    /// <param name="playAudio">The door audio.</param>
     public void ForceInteractiveDoor(bool doorStatus,string doorName,bool playAudio)
     {
         FindObjByName(doorName);
@@ -172,10 +181,10 @@ public class DoorController : InteractableObjBase
                 continue;
             }
         }
-        //如果都沒找到
+        //Find nothing.
         if(obj == null)
         {
-            Debug.LogWarning("都沒有");
+            Debug.LogWarning("Can't find door by this name : " + containerName);
         }
         return obj.GetComponent<DoorObj>();
     }

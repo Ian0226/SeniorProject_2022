@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Store some game setting settings.
+/// </summary>
 public static class GameSettingParamStorage
 {
     private static float musicVolume = 1;

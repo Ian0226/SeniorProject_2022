@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.CustomUITool;
 
+/// <summary>
+/// Handle audios control on UI GameOptionInterface.
+/// </summary>
 public class AudioController
 {
     private GameObject m_RootUI;
@@ -30,9 +34,9 @@ public class AudioController
             effectAudios.Add(obj.GetComponent<AudioSource>());
             //Debug.Log(obj);
         }
-        if (UnityTool.FindGameObject("Sound") != null)
+        if (Unity.CustomTool.UnityTool.FindGameObject("Sound") != null)
         {
-            music = UnityTool.FindGameObject("Sound").GetComponent<AudioSource>();
+            music = Unity.CustomTool.UnityTool.FindGameObject("Sound").GetComponent<AudioSource>();
         }
 
         //music.volume = PlayerPrefs.GetFloat("Volume", slider.maxValue);

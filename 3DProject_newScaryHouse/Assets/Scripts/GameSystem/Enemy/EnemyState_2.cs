@@ -4,6 +4,9 @@ using UnityEngine;
 using System;
 using DG.Tweening;
 
+/// <summary>
+/// Enemy state in game scene 2,3,in this state enemy if player see enemy to long,enemy will do something bad to player.
+/// </summary>
 public class EnemyState_2 : IEnemyState
 {
     private List<Transform> enemyStayPoint = new List<Transform>();
@@ -30,8 +33,8 @@ public class EnemyState_2 : IEnemyState
     }
     public override void StateInitialize()
     {
-        enemyObj = UnityTool.FindGameObject("Enemy_State2");
-        enemyHead = UnityTool.FindChildGameObject(enemyObj, "Head").transform;
+        enemyObj = Unity.CustomTool.UnityTool.FindGameObject("Enemy_State2");
+        enemyHead = Unity.CustomTool.UnityTool.FindChildGameObject(enemyObj, "Head").transform;
         enemyAni = enemyHead.GetComponent<Animator>();
         //Debug.Log(enemyObj);
         //enemyAppearanceFrequency = Random.Range(20, 71);
@@ -41,7 +44,7 @@ public class EnemyState_2 : IEnemyState
 
         enemyStayPoint = mainGame.GetEnemyStayPointObjs();
 
-        enemyRestPos = UnityTool.FindGameObject("EnemyRestPos").transform;
+        enemyRestPos = Unity.CustomTool.UnityTool.FindGameObject("EnemyRestPos").transform;
         enemyObj.transform.position = enemyRestPos.position;
         enemyAudioSource = enemyObj.GetComponent<AudioSource>();
     }
@@ -107,7 +110,7 @@ public class EnemyState_2 : IEnemyState
     public void EnemyBehaviour_0_CatchPlayer()
     {
         mainGame.SetCoverSceneImageActive(true);
-        UnityEngine.UI.Image coverPlayerImg = UITool.FindUIGameObject("CoverPlayerEyesImg").GetComponent<UnityEngine.UI.Image>();
+        UnityEngine.UI.Image coverPlayerImg = Unity.CustomUITool.UITool.FindUIGameObject("CoverPlayerEyesImg").GetComponent<UnityEngine.UI.Image>();
         mainGame.SetPlayerControlStateAndCameraState(false);
         enemyObj.transform.LookAt(mainGame.GetPlayer().transform);
         enemyObj.transform.DOMove(new Vector3(mainGame.GetPlayerController.EnemyToPlayerPoint.position.x,

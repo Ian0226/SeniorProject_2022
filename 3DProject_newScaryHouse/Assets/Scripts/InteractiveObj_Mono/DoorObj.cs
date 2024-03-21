@@ -401,6 +401,6 @@ public class DoorObj : InteractiveObjBase_Mono
     }
     public void SetDoorInteractiveHintPos()
     {
-        hintPosition = UnityTool.FindChildGameObject(this.gameObject, "InteractiveHintPos").transform.position;
+        hintPosition = Unity.CustomTool.UnityTool.FindChildGameObject(this.gameObject, "InteractiveHintPos").transform.position;
     }
 }

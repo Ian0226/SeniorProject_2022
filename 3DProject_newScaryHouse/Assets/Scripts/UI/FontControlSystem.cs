@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.IO;
 using DG.Tweening;
+using Unity.CustomTool;
 
 public class FontControlSystem : IUserInterface
 {
@@ -76,13 +77,13 @@ public class FontControlSystem : IUserInterface
     }
     public override void Initialize()
     {
-        fcsContainer = UITool.FindUIGameObject("FontControlSystemContainer");
-        textDisplay = UITool.GetUIComponent<TextMeshProUGUI>(fcsContainer, "TextController");
+        fcsContainer = Unity.CustomUITool.UITool.FindUIGameObject("FontControlSystemContainer");
+        textDisplay = Unity.CustomUITool.UITool.GetUIComponent<TextMeshProUGUI>(fcsContainer, "TextController");
         interactiveHint = UnityTool.FindChildGameObject(fcsContainer, "InteractiveHintPanel");
         if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainGameScene_1")
         {
             tutorialInterfaceContainer = UnityTool.FindGameObject("TutorialInterface").transform;
-            tutorialInterText = UITool.GetUIComponent<Text>(tutorialInterfaceContainer.gameObject, "TutorialText");
+            tutorialInterText = Unity.CustomUITool.UITool.GetUIComponent<Text>(tutorialInterfaceContainer.gameObject, "TutorialText");
             tutorialInterfaceContainer.gameObject.SetActive(false);
         }  
         interactiveHint.SetActive(false);

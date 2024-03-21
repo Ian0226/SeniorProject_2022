@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using DG.Tweening;
+using Unity.CustomTool;
 
+/// <summary>
+/// Control player,handle all player operations.
+/// </summary>
 public class PlayerController : IGameSystem
 {
     private GameObject playerObj;
@@ -60,14 +64,20 @@ public class PlayerController : IGameSystem
     private Transform mainCameraTransform;
     //射線長度
     private float interactiveRange;
-    //玩家當前互動的物件(射線打到)
+
+    /// <summary>
+    /// 玩家當前互動的物件(射線打到)
+    /// </summary>
     private GameObject nowInteractiveObj;
     public GameObject NowInteractiveObj
     {
         get { return nowInteractiveObj; }
         set { nowInteractiveObj = value; }
     }
-    //玩家當前互動的物件(按E)
+
+    /// <summary>
+    /// 玩家當前互動的物件(按E)
+    /// </summary>
     private GameObject interactiveObj;
     public GameObject InteractiveObj
     {
@@ -151,11 +161,17 @@ public class PlayerController : IGameSystem
 
     ItemHintController itemHintController = null;
 
+    /// <summary>
+    /// Test
+    /// </summary>
+    private PlayerSystemTest testObject;
+
+
     public PlayerController(MainGame main) : base(main)
     {
         Initialize();
     }
-
+    int layerMask;
     public override void Initialize()
     {
         moveSpeed = 3;
@@ -197,9 +213,15 @@ public class PlayerController : IGameSystem
         enemyToPlayerPoint = UnityTool.FindChildGameObject(playerObj, "EnemyToPlayerPoint").transform;
 
         cameraContainer = UnityTool.FindChildGameObject(playerObj, "PlayerMainCameraContainer").transform;
+        //限制射線擊中目標
+        layerMask = ~(1 << playerDetectEnemyColObj.gameObject.layer | 1 << LayerMask.NameToLayer("LimitArea") |
+                1 << LayerMask.NameToLayer("EnemyStayPoint_State2"));
+
+        //For test
+        testObject = UnityTool.FindGameObject("Player").GetComponent<PlayerSystemTest>();
     }
 
-    int layerMask;
+    
     public override void Update()
     {
         mouseSensitivity = GameSettingParamStorage.MouseSensitivity;
@@ -215,9 +237,6 @@ public class PlayerController : IGameSystem
         if (playerDetectEnemyColObj != null)
         {
             playerDetectEnemyColObj.transform.position = playerObj.transform.position;
-            //限制射線擊中目標
-            layerMask = ~(1 << playerDetectEnemyColObj.gameObject.layer | 1 << LayerMask.NameToLayer("LimitArea") |
-                1 << LayerMask.NameToLayer("EnemyStayPoint_State2"));
         }
         /*if (playerCameraLootAtHandler != null)
         {
@@ -231,6 +250,7 @@ public class PlayerController : IGameSystem
             //cameraObj.rotation = cameraOriginRotate;
         }*/
 
+        //Handle player operation.
         if (playerControlStatus)
         {
             Move();
@@ -243,7 +263,7 @@ public class PlayerController : IGameSystem
                 nowInteractiveObj = hitObj.transform.gameObject;
                 Debug.DrawLine(ray.origin, hitObj.point, Color.yellow);
                 DetectInteractiveObj();
-                //Debug.Log(hitObj.transform.name);
+                //Enemy will set this action PlayerLookEnemy.
                 if (doNotLookEnemyAction != null)
                     doNotLookEnemyAction();
             }
@@ -383,19 +403,27 @@ public class PlayerController : IGameSystem
         }
     }
 
+    /// <summary>
+    /// Handle camera rotate.
+    /// </summary>
     private void CameraCtrl()
     {
-        //Debug.Log(mainCameraTransform.localEulerAngles.x);
-        float x = Input.GetAxis("Mouse X")* mouseSensitivity * Time.deltaTime;
-        float y = Input.GetAxis("Mouse Y")* mouseSensitivity * Time.deltaTime;
-        //Debug.Log(y);
-
+        //Input.GetAxis return value between -1 to 1,it means the speed of mouse move and the direction of mouse move.
+        float x = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float y = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        
+        //Rotate player shpere object.
         playerTransform.Rotate(Vector3.up * x);
 
+
+        //The camera up down rotate value.
         xRotate -= y;
 
-        //Debug.Log(cameraRotateOffsetX);
-        //xRotate = Mathf.Clamp(xRotate, -70f, 60f);
+        //For test.
+        testObject.rotateX = x;
+        testObject.rotateY = y;
+
+        //Restriction the camera rotation.
         if (originOffsetX > 0 && cameraLookAtTargetRotate < 0)
         {
             xRotate = Mathf.Clamp(xRotate, -70f + cameraRotateOffsetX, 60f + cameraRotateOffsetX);
@@ -434,7 +462,11 @@ public class PlayerController : IGameSystem
         
         //Debug.Log(mainCameraTransform.localEulerAngles);
     }
-    //玩家互動方法
+
+    /// <summary>
+    /// Handle player interactive when player input E key.
+    /// </summary>
+    /// <param name="obj">The object which interactive with.</param>
     private void PlayerInteractive(GameObject obj)
     {
         if(obj.tag == "Door")
@@ -504,17 +536,20 @@ public class PlayerController : IGameSystem
             mainGame.SetPaperPieceCollected(obj.transform.parent);
         }
     }
+
+    /// <summary>
+    /// Detect what kind of object now ray cast shoot.
+    /// </summary>
     private void DetectInteractiveObj()
     {
-        
-        if (mainGame.GetPlayerController.NowInteractiveObj && mainGame.GetPlayerController.NowInteractiveObj.transform.parent)
+        if (nowInteractiveObj && nowInteractiveObj.transform.parent)
         {
-            if (mainGame.GetPlayerController.NowInteractiveObj.transform.parent.GetComponent<ItemHintController>() != null)
+            if (nowInteractiveObj.transform.parent.GetComponent<ItemHintController>() != null)
             {
-                itemHintController = mainGame.GetPlayerController.NowInteractiveObj.transform.parent.GetComponent<ItemHintController>();
+                itemHintController = nowInteractiveObj.transform.parent.GetComponent<ItemHintController>();
             }
         }
-        if (hitObj.transform.gameObject.layer == 6 && nowInteractiveObj!=null)
+        if (hitObj.transform.gameObject.layer == 6 && nowInteractiveObj!=null)//Layer 6 is interactive layer.
         {
             if(nowInteractiveObj.tag == "Door" && mainGame.DoorController.GetDoor().IsMove == true)
             {
@@ -551,7 +586,10 @@ public class PlayerController : IGameSystem
     {
         playerControlStatus = status;
     }
-    //使用特殊道具
+
+    /// <summary>
+    /// 使用特殊道具
+    /// </summary>
     public void UseSpecialItem()
     {
         //Debug.Log("Use" + Inventory.SpecialItem);
@@ -581,24 +619,34 @@ public class PlayerController : IGameSystem
     {
         return _playerDetectEnemyColObj.GetEnemyStayPointObjs();
     }
+
+    /// <summary>
+    /// Set player look direction to target.
+    /// </summary>
+    /// <param name="target">Look target.</param>
     public void SetPlayerLookDirection(Transform target)
     {
         cameraRotateOffsetX = 0;
         originOffsetX = 0;
         cameraLookAtTargetRotate = 0;
-        //float originOffsetX = mainCameraTransform.localEulerAngles.x;
         originOffsetX = mainCameraTransform.localEulerAngles.x;
         playerTransform.DOLookAt(new Vector3(target.position.x, playerTransform.position.y, target.position.z), 0.5f);
-        //Debug.Log(mainCameraTransform.localEulerAngles.x);
+
+        //Move player look target ,when complete,caculate the new x axis rotation and origin x axis rotation offset.
         cameraObj.DOLookAt(target.position, 0.5f).OnComplete(() => {
             CalCameraOffset(originOffsetX);
             //Debug.Log(cameraRotateOffsetX);
-            //Debug.Log("移動前RotationX : " + originOffsetX + " + 偏移植 : " + cameraRotateOffsetX);
-            //Debug.Log("移動後RotationX : " + mainCameraTransform.localEulerAngles.x);
+            Debug.Log("移動前RotationX : " + originOffsetX + " + 偏移植 : " + cameraRotateOffsetX);
+            Debug.Log("移動後RotationX : " + mainCameraTransform.localEulerAngles.x);
             //Debug.Log("xRotate : " + xRotate + " " + "xRotate + cameraRotateOffsetX : " + mainCameraTransform.localRotation.x);
         });
 
     }
+
+    /// <summary>
+    /// Let player can't control there character.
+    /// </summary>
+    /// <param name="time">The time player can's control.</param>
     public void LockPlayerControlState(float time)
     {
         cameraControlState = false;
@@ -608,29 +656,36 @@ public class PlayerController : IGameSystem
             playerControlStatus = true;
         });
     }
+
     public void SetPlayerControlStateAndCameraState(bool state)
     {
         cameraControlState = state;
         playerControlStatus = state;
     }
-    //計算鏡頭移動至目標後旋轉角度與移動前差值
+
+    /// <summary>
+    /// 計算鏡頭移動至目標後旋轉角度與移動前差值
+    /// </summary>
+    /// <param name="x">Origin x axis rotate.</param>
     public void CalCameraOffset(float x)
     {
+        //Set cameraLookAtTargetRotate current x axis rotation.
         cameraLookAtTargetRotate = mainCameraTransform.localEulerAngles.x;
+        //Caculate offset of origin to current x axis rotation offset.
         cameraRotateOffsetX = Mathf.Abs(cameraLookAtTargetRotate - x);
+        //Make rotation in 180 degree.
         if(cameraRotateOffsetX > 180)
         {
             cameraRotateOffsetX = 360 - cameraRotateOffsetX;
         }
-        if(x > 180)
-        {
-            x = -(360 - x);
-        }
-        originOffsetX = x;
         //Debug.Log("鏡頭移動至目標後 : " + cameraLookAtTargetRotate + "鏡頭移動至目標前 : " + x);
         //Debug.Log("差值 : " + cameraRotateOffsetX);
         //Debug.Log("xRotate : " + xRotate);
     }
+
+    /// <summary>
+    /// Handle player look at enemy,if look over 1.5 second,punish player.
+    /// </summary>
     public void PlayerLookEnemy()
     {
         if (CheckPlayerLookTarget(hitObj.transform, "Enemy"))
@@ -650,7 +705,7 @@ public class PlayerController : IGameSystem
             playerLookEnemyTime = 0;
         }
     }
-    public bool CheckPlayerLookTarget(Transform playerLookObj,string targetTag)
+    private bool CheckPlayerLookTarget(Transform playerLookObj,string targetTag)
     {
         bool isLook = false;
         if(playerLookObj.tag == targetTag)
@@ -664,6 +719,11 @@ public class PlayerController : IGameSystem
         return isLook;
     }
 
+    /// <summary>
+    /// Start view item handler,in scene 1,lock box use this.
+    /// </summary>
+    /// <param name="cameraPos">The transform of CameraPoint gameObject in lookTargetObj.</param>
+    /// <param name="lookTargetObj">The looking target.</param>
     public void StartViewObjectHandler(Transform cameraPos,Transform lookTargetObj)
     {
         cameraOriginPos = camera2.transform.position;
@@ -679,6 +739,7 @@ public class PlayerController : IGameSystem
         //camera2.transform.rotation.eulerAngles.Set(0,0,0);
         playerControlStatus = false;
     }
+
     public void EndViewObjectHandler()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -696,6 +757,9 @@ public class PlayerController : IGameSystem
         }
     }
     private bool clickState = false;
+    /// <summary>
+    /// Handle player click the item in ItemPreviewSystem.
+    /// </summary>
     public void ViewItemRaycastHandler()
     {
         Camera camera = camera2.GetComponent<Camera>();

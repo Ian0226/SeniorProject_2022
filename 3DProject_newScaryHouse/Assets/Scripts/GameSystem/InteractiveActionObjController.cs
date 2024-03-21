@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handle game object type that has specific interactive event.
+/// </summary>
 public class InteractiveActionObjController : InteractableObjBase
 {
     private List<GameObject> itemObjs = new List<GameObject>();

@@ -2,18 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Parent of EnemyState.
+/// </summary>
 public class IEnemyState
 {
+    /// <summary>
+    /// Enemy model object.
+    /// </summary>
     protected GameObject enemyObj;
     public GameObject EnemyObj
     {
         get { return enemyObj; }
     }
 
+    /// <summary>
+    /// Enemy state controller.
+    /// </summary>
     protected EnemyControlSystem conrtoller = null;
 
     protected MainGame mainGame = null;
 
+    /// <summary>
+    /// Animator controller of enemy.
+    /// </summary>
     protected Animator enemyAni;
     public Animator EnemyAni
     {

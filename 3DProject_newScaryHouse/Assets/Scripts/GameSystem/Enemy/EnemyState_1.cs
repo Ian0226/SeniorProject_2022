@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemy state in game scene 1,in this state enemy just go to specific position when player trigger some event.
+/// </summary>
 public class EnemyState_1 : IEnemyState
 {
     private List<GameObject> enemyStayPoint = new List<GameObject>();
