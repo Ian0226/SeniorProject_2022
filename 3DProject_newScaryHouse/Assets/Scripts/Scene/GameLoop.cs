@@ -6,6 +6,7 @@ public class GameLoop : MonoBehaviour
 {
     SceneStateController sceneStateController = new SceneStateController();
 
+    //Use to change scene.
     public static int testInt = 0;
     public int testIntInspector;
     void Awake()
